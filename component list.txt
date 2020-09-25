@@ -1,8 +1,9 @@
 Header
  Search bar
- Dropdown
- (+ dark mode)
+ CommunitiesDropdown
+ ProfileDropdown
  
-MainPage
- Post
+ 
+HomePage
+ Posts
  GrowingCom(munities)
