@@ -1,0 +1,8 @@
+Header
+ Search bar
+ Dropdown
+ (+ dark mode)
+ 
+MainPage
+ Post
+ GrowingCom(munities)
