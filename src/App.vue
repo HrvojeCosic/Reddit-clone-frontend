@@ -9,18 +9,18 @@
 </template>
 
 <script>
-	import Header from './components/Header/Header.vue';
-	import MainPage from './components/MainPage.vue';
-	export default {
-		components: { Header, MainPage },
-	};
+import Header from './components/Header/Header.vue';
+import MainPage from './components/MainPage.vue';
+export default {
+	components: { Header, MainPage },
+};
 </script>
 
 <style scoped>
-	#app {
-		width: 100vw;
-		height: 100vh;
-		background-color: #dae0e6;
-	}
-	@import './components/Header/Header.css';
+@import './components/Header/Header.css';
+#app {
+	width: 100vw;
+	height: 100vh;
+	background-color: #dae0e6;
+}
 </style>

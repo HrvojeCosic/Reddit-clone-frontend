@@ -4,6 +4,7 @@ Header
  ProfileDropdown
  
  
-HomePage
+MainPage
+ Post
  Posts
  GrowingCom(munities)
