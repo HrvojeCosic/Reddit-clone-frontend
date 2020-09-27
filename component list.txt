@@ -7,4 +7,4 @@ Header
 MainPage
  Post
  Posts
- GrowingCom(munities)
+ FeaturedCom(munities)

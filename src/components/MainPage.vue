@@ -1,16 +1,16 @@
 <template>
 	<div class="main">
-		<Posts v-bind:postsData="posts" />
+		<Feed v-bind:postsData="posts" />
 	</div>
 </template>
 
 <script>
-import Posts from './Posts/Posts';
+import Feed from './Feed/Feed';
 import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment';
 
 export default {
-	components: { Posts },
+	components: { Feed },
 	data() {
 		return {
 			posts: [
