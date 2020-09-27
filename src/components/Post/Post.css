@@ -6,10 +6,8 @@
     "voting title title title"
     "voting comments comments comments";
   grid-gap: 15px 40px;
-  /* width: 50vw;
-    overflow: auto; */
   padding: 10px 10px 5px 10px;
-  margin: 7px 0;
+  margin: 0 0 7px 0;
   border: 1px solid #cccccc;
   border-radius: 5px;
   background-color: #ffffff;

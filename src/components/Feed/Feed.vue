@@ -1,11 +1,16 @@
 <template>
 	<div class="feed-container">
-		<Post v-for="post in postsData" v-bind:key="post.id" v-bind:post="post" />
-		<FeaturedCommunities
-			v-for="post in postsData"
-			v-bind:key="post.id"
-			v-bind:community="post.community"
-		/>
+		<div class="post-container">
+			<Post v-for="post in postsData" v-bind:key="post.id" v-bind:post="post" />
+		</div>
+		<div class="featured-communities-container">
+			<h1 class="featured-communities-title">FeaturedCommunities</h1>
+			<FeaturedCommunities
+				v-for="post in postsData"
+				v-bind:key="post.id"
+				v-bind:community="post.community"
+			/>
+		</div>
 	</div>
 </template>
 
