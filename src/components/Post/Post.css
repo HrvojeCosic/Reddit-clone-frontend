@@ -1,0 +1,57 @@
+#post {
+    display: grid;
+    justify-content: start;
+    grid-template-areas:
+      "voting community posted-by date"
+      "voting title title title"
+      "voting comments comments comments";
+    grid-gap: 15px 40px;
+    padding: 10px 10px 5px 10px;
+    margin: 7px 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .voting {
+    grid-area: voting;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .upvote {
+    background-color: #2cbd54;
+    width: 20px;
+    height: 20px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    cursor: pointer;
+  }
+  .downvote {
+    background-color: #f03636;
+    width: 20px;
+    height: 20px;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .community {
+    grid-area: community;
+    margin-right: 10px;
+  }
+  .posted-by {
+    grid-area: posted-by;
+    margin-right: 10px;
+  }
+  .date-posted {
+    grid-area: date;
+  }
+  .post-title {
+    grid-area: title;
+  }
+  
+  .comments {
+    grid-area: comments;
+  }

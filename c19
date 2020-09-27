@@ -1,0 +1,23 @@
+[33mcommit 1b5fa013dd20c1d401b297554a06ab42d2b5173a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Hrvoje Cosic <hcacc100@gmail.com>
+Date:   Fri Sep 25 21:08:05 2020 +0200
+
+    example post added, indentation fixed
+
+[33mcommit bb338005090f360ea06b50c08b98a5d7aae9c705[m
+Author: Hrvoje Cosic <hcacc100@gmail.com>
+Date:   Fri Sep 25 18:58:46 2020 +0200
+
+    Header layout added
+
+[33mcommit 3a37c23e2281c98757b14013501ee4dbf98d6d0d[m
+Author: Hrvoje Cosic <hcacc100@gmail.com>
+Date:   Fri Sep 25 13:08:48 2020 +0200
+
+    inital commit
+
+[33mcommit c1930e8fb5a0e67904fb0efbc1eb71dfb024f034[m
+Author: Hrvoje Cosic <hcacc100@gmail.com>
+Date:   Fri Sep 25 13:02:26 2020 +0200
+
+    init
