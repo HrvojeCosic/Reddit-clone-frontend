@@ -1,8 +1,8 @@
 .DS_Store
 node_modules
 /dist
-redditclone
-component list
+redditclone.png
+component list.txt
 
 
 # local env files
