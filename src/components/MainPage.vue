@@ -1,16 +1,18 @@
 <template>
 	<div class="main">
+		<Header />
 		<Feed v-bind:postsData="posts" />
 	</div>
 </template>
 
 <script>
-import Feed from './Feed/Feed';
+import Feed from './Feed/Feed.vue';
+import Header from './Header/Header.vue';
 import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment';
 
 export default {
-	components: { Feed },
+	components: { Feed, Header },
 	data() {
 		return {
 			posts: [
