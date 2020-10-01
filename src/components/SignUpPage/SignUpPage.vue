@@ -50,7 +50,14 @@ export default {
 				email: this.email,
 				createdAt: this.createdAt,
 			};
-			axios.post('http://localhost:3000/api/users', newUser);
+			axios
+				.post('http://localhost:3000/api/users', newUser)
+				.then(res => {
+					console.log(res);
+				})
+				.catch(err => {
+					console.log(err.response);
+				});
 		},
 	},
 	name: 'SignUpPage',
