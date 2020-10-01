@@ -16,7 +16,12 @@
 					id="password"
 					v-model="password"
 				/>
-				<!-- <input placeholder="Repeat password" type="password" id="password" /> @todo:add repeat password -->
+				<input
+					placeholder="Repeat password"
+					type="password"
+					id="repeat-password"
+					v-model="repeatPassword"
+				/>
 				<button id="submit" @click="createUser">Sign Up</button>
 				<router-link to="/" class="back-to-hp2">Back to home page</router-link>
 			</form>
@@ -31,7 +36,9 @@ export default {
 		return {
 			username: '',
 			password: '',
+			repeatPassword: '',
 			email: '',
+			createdAt: new Date(),
 		};
 	},
 	methods: {
@@ -39,7 +46,9 @@ export default {
 			const newUser = {
 				username: this.username,
 				password: this.password,
+				repeatPassword: this.repeatPassword,
 				email: this.email,
+				createdAt: this.createdAt,
 			};
 			axios.post('http://localhost:3000/api/users', newUser);
 		},
