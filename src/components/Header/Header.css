@@ -69,6 +69,23 @@ h1 {
   background-color: #ffffff;
   color: #0079d3;
 }
+.logged-in-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 33px;
+  border: 1px solid #edeff1;
+  border-radius: 4px;
+  background-color: #f6f7f8;
+  cursor: pointer;
+}
+.logged-in-user:hover {
+-webkit-box-shadow: 2px 2px 7px 0px rgba(237,239,241,1);
+-moz-box-shadow:2px 2px 7px 0px rgba(237,239,241,1);
+box-shadow: 2px 2px 7px 0px rgba(237,239,241,1);
+
+}
 
 @media only screen and (max-width: 735px) {
   .title h1 {

@@ -12,24 +12,35 @@
 			<router-link to="/sign-up" class="sign-up-btn" v-show="!tokenFound"
 				>SIGN UP</router-link
 			>
-			<div v-show="tokenFound">
-				<h3>username example</h3>
+			<div v-show="tokenFound" class="logged-in-user">
+				<h3>{{ username }}</h3>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
 	data() {
 		return {
 			tokenFound: localStorage.getItem('token'),
+			username: '',
 		};
 	},
 	mounted() {
 		const tokenFound = localStorage.getItem('token');
 		if (tokenFound) {
-			console.log(tokenFound);
+			axios
+				.get('http://localhost:3000/api/users/login', {
+					headers: { token: tokenFound },
+				})
+				.then(res => {
+					this.username = res.data.user.username;
+				})
+				.catch(err => {
+					console.log(err);
+				});
 		}
 	},
 };
