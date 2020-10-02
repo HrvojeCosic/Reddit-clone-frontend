@@ -15,6 +15,9 @@
 			<div v-show="tokenFound" class="logged-in-user">
 				<h3>{{ username }}</h3>
 			</div>
+			<button v-show="tokenFound" @click="logout" class="logout-btn">
+				Log Out
+			</button>
 		</div>
 	</div>
 </template>
@@ -42,6 +45,12 @@ export default {
 					console.log(err);
 				});
 		}
+	},
+	methods: {
+		logout() {
+			const clearJWT = localStorage.clear();
+			this.tokenFound = clearJWT;
+		},
 	},
 };
 </script>
