@@ -23,6 +23,13 @@
 					v-model="repeatPassword"
 				/>
 				<button id="submit" @click="createUser">Sign Up</button>
+				<h3
+					v-bind:class="[
+						alert === 'Signed up successfully.' ? success : failed,
+					]"
+				>
+					{{ alert }}
+				</h3>
 				<router-link to="/" class="back-to-hp2">Back to home page</router-link>
 			</form>
 		</div>
@@ -39,6 +46,9 @@ export default {
 			repeatPassword: '',
 			email: '',
 			createdAt: new Date(),
+			alert: '',
+			success: 'signed-up',
+			failed: 'signup-failed',
 		};
 	},
 	methods: {
@@ -53,9 +63,11 @@ export default {
 			axios
 				.post('http://localhost:3000/api/users', newUser)
 				.then(res => {
+					this.alert = res.data.title;
 					console.log(res);
 				})
 				.catch(err => {
+					this.alert = err.response.data.error;
 					console.log(err.response);
 				});
 		},

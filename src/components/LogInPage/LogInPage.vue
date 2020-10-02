@@ -3,10 +3,18 @@
 		<div class="log-in-container">
 			<h2>Login To Your Account</h2>
 			<form class="loginbox" autocomplete="off">
-				<input placeholder="Username" type="text" id="username" />
-				<input placeholder="Password" type="password" id="password" />
-				<button id="submit">Login</button>
+				<input placeholder="Email" type="text" id="email" v-model="email" />
+				<input
+					placeholder="Password"
+					type="password"
+					id="password"
+					v-model="password"
+				/>
+				<button id="submit" @click="login">Login</button>
 			</form>
+			<h3 v-bind:class="[alert === 'login successful.' ? success : failed]">
+				{{ alert }}
+			</h3>
 			<div class="links">
 				<router-link to="/" class="back-to-hp">Back to home page</router-link>
 				<router-link to="/sign-up" class="sign-up-instead"
@@ -18,9 +26,32 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
 	data() {
-		return {};
+		return {
+			email: '',
+			password: '',
+			alert: '',
+			failed: 'login-failed',
+			success: 'logged-in',
+		};
+	},
+	methods: {
+		login() {
+			const user = {
+				email: this.email,
+				password: this.password,
+			};
+			axios
+				.post('http://localhost:3000/api/users/login', user)
+				.then(res => {
+					this.alert = res.data.title;
+				})
+				.catch(err => {
+					this.alert = err.response.data.error;
+				});
+		},
 	},
 	name: 'LogInPage',
 };

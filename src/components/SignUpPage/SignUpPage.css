@@ -42,3 +42,11 @@
 	color: #ff6600;
 	text-decoration: none;
 }
+.signup-failed, .signed-up {
+	color: rgb(195, 19, 19);
+	text-align: center;
+	margin: 20px 0;
+}
+.signed-up {
+	color: rgb(25, 93, 25)
+}
