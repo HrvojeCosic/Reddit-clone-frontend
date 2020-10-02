@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import router from '../../router/index';
 import axios from 'axios';
 export default {
 	data() {
@@ -64,11 +65,10 @@ export default {
 				.post('http://localhost:3000/api/users', newUser)
 				.then(res => {
 					this.alert = res.data.title;
-					console.log(res);
+					router.push('/log-in');
 				})
 				.catch(err => {
 					this.alert = err.response.data.error;
-					console.log(err.response);
 				});
 		},
 	},

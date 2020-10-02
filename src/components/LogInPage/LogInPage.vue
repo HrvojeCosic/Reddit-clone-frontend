@@ -27,6 +27,7 @@
 
 <script>
 import axios from 'axios';
+import router from '../../router/index';
 export default {
 	data() {
 		return {
@@ -47,6 +48,8 @@ export default {
 				.post('http://localhost:3000/api/users/login', user)
 				.then(res => {
 					this.alert = res.data.title;
+					localStorage.setItem('token', res.data.token);
+					router.push('/');
 				})
 				.catch(err => {
 					this.alert = err.response.data.error;
