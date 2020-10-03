@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		tokenFound: 'asdasd',
+		tokenFound: null,
 	},
 	mutations: {
 		changeJwt(jwt) {

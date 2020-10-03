@@ -6,16 +6,26 @@
 		</div>
 		<input class="search" placeholder="Search" />
 		<div class="buttons-log-sign">
-			<router-link to="/log-in" class="log-in-btn" v-show="!tokenFound"
+			<router-link
+				to="/log-in"
+				class="log-in-btn"
+				v-show="!$store.state.tokenFound"
 				>LOG IN</router-link
 			>
-			<router-link to="/sign-up" class="sign-up-btn" v-show="!tokenFound"
+			<router-link
+				to="/sign-up"
+				class="sign-up-btn"
+				v-show="!$store.state.tokenFound"
 				>SIGN UP</router-link
 			>
-			<div v-show="tokenFound" class="logged-in-user">
+			<div v-show="$store.state.tokenFound" class="logged-in-user">
 				<h3>{{ username }}</h3>
 			</div>
-			<button v-show="tokenFound" @click="logout" class="logout-btn">
+			<button
+				v-show="$store.state.tokenFound"
+				@click="logout"
+				class="logout-btn"
+			>
 				Log Out
 			</button>
 		</div>
@@ -50,6 +60,7 @@ export default {
 		logout() {
 			const clearJWT = localStorage.clear();
 			this.tokenFound = clearJWT;
+			//ALSO CHANGE THE STORE'S STATE THAT HAS JWT
 		},
 	},
 };
