@@ -41,11 +41,10 @@ export default {
 		};
 	},
 	mounted() {
-		const tokenFound = localStorage.getItem('token');
-		if (tokenFound) {
+		if (this.$store.state.tokenFound) {
 			axios
 				.get('http://localhost:3000/api/users/login', {
-					headers: { token: tokenFound },
+					headers: { token: this.$store.state.tokenFound },
 				})
 				.then(res => {
 					this.username = res.data.user.username;
@@ -57,8 +56,6 @@ export default {
 	},
 	methods: {
 		logout() {
-			const clearJWT = localStorage.clear();
-			this.tokenFound = clearJWT;
 			this.$store.commit('changeJwt', null);
 		},
 	},
