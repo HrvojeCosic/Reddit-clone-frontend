@@ -1,13 +1,13 @@
 <template>
-	<div class="create-post">
-		Create Post
+	<div class="create-post-container">
+		<div class="create-post-btn">
+			Create Post
+		</div>
 	</div>
 </template>
 
 <script></script>
 
 <style scoped>
-.create-post {
-	color: red;
-}
+@import './CreatePost.css';
 </style>
