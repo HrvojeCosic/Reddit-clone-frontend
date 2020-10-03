@@ -48,7 +48,9 @@ export default {
 				.post('http://localhost:3000/api/users/login', user)
 				.then(res => {
 					this.alert = res.data.title;
+					//SET JWT TO LOCALSTORAGE AND UPDATE VUEX STATE'S tokenFound
 					localStorage.setItem('token', res.data.token);
+					this.$store.commit('changeJwt', res.data.token);
 					router.push('/');
 				})
 				.catch(err => {

@@ -1,6 +1,7 @@
 <template>
 	<div class="feed-container">
 		<div class="post-container">
+			<CreatePost v-show="this.$store.state.tokenFound" />
 			<Post v-for="post in postsData" v-bind:key="post.id" v-bind:post="post" />
 		</div>
 		<div class="featured-communities-container">
@@ -15,12 +16,13 @@
 </template>
 
 <script>
+import CreatePost from '../CreatePost/CreatePost';
 import Post from '../Post/Post.vue';
 import FeaturedCommunities from '../FeaturedCommunities/FeaturedCommunities.vue';
 export default {
 	name: 'Feed',
 	props: ['postsData'],
-	components: { Post, FeaturedCommunities },
+	components: { Post, FeaturedCommunities, CreatePost },
 	computed: {
 		uniqueCommunities() {
 			const postsData = this.$props.postsData;

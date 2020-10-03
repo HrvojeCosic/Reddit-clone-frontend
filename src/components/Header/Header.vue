@@ -37,7 +37,6 @@ import axios from 'axios';
 export default {
 	data() {
 		return {
-			tokenFound: localStorage.getItem('token'),
 			username: '',
 		};
 	},
@@ -60,7 +59,7 @@ export default {
 		logout() {
 			const clearJWT = localStorage.clear();
 			this.tokenFound = clearJWT;
-			//ALSO CHANGE THE STORE'S STATE THAT HAS JWT
+			this.$store.commit('changeJwt', null);
 		},
 	},
 };

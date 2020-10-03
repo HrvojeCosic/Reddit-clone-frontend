@@ -1,14 +1,16 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+	plugins: [createPersistedState()],
 	state: {
 		tokenFound: null,
 	},
 	mutations: {
-		changeJwt(jwt) {
+		changeJwt(state, jwt) {
 			this.state.tokenFound = jwt;
 		},
 	},
