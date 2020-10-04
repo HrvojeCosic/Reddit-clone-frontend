@@ -42,6 +42,7 @@ export default {
 	methods: {
 		submitPost() {
 			const newPost = {
+				author: this.$store.state.currentUser,
 				community: this.postCommunity,
 				title: this.postTitle,
 				text: this.postText,

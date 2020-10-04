@@ -60,6 +60,7 @@ export default {
 	methods: {
 		logout() {
 			this.$store.commit('changeJwt', null);
+			this.$store.commit('addCurrentUser', null);
 			router.push('/').catch(err => {
 				//IF CURRENTLY ON '/', DON'T SHOW REDUNTANT NAVIGATION ERROR
 				if (this.$route.path === '/') {

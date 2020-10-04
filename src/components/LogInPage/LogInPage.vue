@@ -50,6 +50,7 @@ export default {
 					this.alert = res.data.title;
 					//SET JWT TO LOCALSTORAGE AND UPDATE VUEX STATE'S tokenFound
 					this.$store.commit('changeJwt', res.data.token);
+					this.$store.commit('addCurrentUser', user.email);
 					router.push('/');
 				})
 				.catch(err => {

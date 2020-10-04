@@ -8,10 +8,14 @@ export default new Vuex.Store({
 	plugins: [createPersistedState()],
 	state: {
 		tokenFound: null,
+		currentUser: '',
 	},
 	mutations: {
 		changeJwt(state, jwt) {
 			this.state.tokenFound = jwt;
+		},
+		addCurrentUser(state, userEmail) {
+			this.state.currentUser = userEmail;
 		},
 	},
 });
