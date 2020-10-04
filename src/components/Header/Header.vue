@@ -34,6 +34,7 @@
 
 <script>
 import axios from 'axios';
+import router from '../../router/index';
 export default {
 	data() {
 		return {
@@ -57,6 +58,13 @@ export default {
 	methods: {
 		logout() {
 			this.$store.commit('changeJwt', null);
+			router.push('/').catch(err => {
+				//IF CURRENTLY ON '/', DON'T SHOW REDUNTANT NAVIGATION ERROR
+				if (this.$route.path === '/') {
+					return;
+				}
+				console.log(err);
+			});
 		},
 	},
 };

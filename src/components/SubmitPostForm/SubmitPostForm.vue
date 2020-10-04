@@ -11,7 +11,7 @@
 				<input type="text" placeholder="Text (optional)" />
 			</form>
 			<div class="buttons-container">
-				<input type="submit" value="CANCEL" />
+				<router-link to="/"><input type="submit" value="CANCEL"/></router-link>
 				<input type="submit" value="POST" />
 			</div>
 		</div>
