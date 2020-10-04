@@ -1,8 +1,8 @@
 <template>
 	<div class="create-post-container">
-		<div class="create-post-btn">
-			Create Post
-		</div>
+		<router-link class="link-submit-post" to="/submit">
+			<input class="create-post-btn" placeholder="Create Post" />
+		</router-link>
 	</div>
 </template>
 
