@@ -2,7 +2,7 @@
 	<div>
 		<Header />
 		<div class="form-container">
-			<div class="header">
+			<div class="form-header">
 				<h2>Create a post</h2>
 				<input type="text" placeholder="Choose a community" />
 			</div>

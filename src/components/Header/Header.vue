@@ -1,9 +1,11 @@
 <template>
 	<div id="header">
-		<div class="title">
-			<img id="logo" src="../../../src/assets/logo.png" />
-			<h1>RedditLight</h1>
-		</div>
+		<router-link to="/" class="link">
+			<div class="title">
+				<img id="logo" src="../../../src/assets/logo.png" />
+				<h1>RedditLight</h1>
+			</div>
+		</router-link>
 		<input class="search" placeholder="Search" />
 		<div class="buttons-log-sign">
 			<router-link
@@ -72,4 +74,8 @@ export default {
 
 <style scoped>
 @import './Header.css';
+.link {
+	text-decoration: none;
+	color: inherit;
+}
 </style>

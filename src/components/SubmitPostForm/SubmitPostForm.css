@@ -6,15 +6,15 @@
     padding: 5% 20%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.header {
+.form-header {
     margin-bottom: 50px;
     width: 100%;
 }
-.header h2 {
+.form-header h2 {
     margin-bottom: 10px;
     font-weight: 800;
 }
-.header h2:after {
+.form-header h2:after {
     content: '';
     display: block;
     border-bottom: 1px solid #ffffff;
