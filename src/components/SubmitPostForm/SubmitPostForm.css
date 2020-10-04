@@ -1,0 +1,81 @@
+.form-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5% 20%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.header {
+    margin-bottom: 50px;
+    width: 100%;
+}
+.header h2 {
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+.header h2:after {
+    content: '';
+    display: block;
+    border-bottom: 1px solid #ffffff;
+    margin-top: 15px;
+}
+input[placeholder="Choose a community"] {
+    padding: 8px;
+    margin-top: 5px;
+    outline: none;
+    border-radius: 5px;
+}
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+}
+.form-container form input:focus {
+    border: 1px solid black;
+    outline: none;
+}
+.form-container input[placeholder="Title"] {
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #d8d8d8;
+}
+.form-container input[placeholder="Text (optional)"] {
+    padding: 10px 10px 150px 10px;
+    border-radius: 5px;
+    border: 1px solid #d8d8d8;
+}
+.buttons-container {
+    align-self: flex-end;
+}
+.buttons-container input {
+    padding: 10px;
+    margin-left: 20px;
+    border: 1px solid #0079d3;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: #0079d3;
+    color: #ffffff;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+.buttons-container input[value="POST"]:hover {
+    background-color: #f0f6fb;
+}
+.buttons-container input[value="CANCEL"]:hover {
+    background-color: #83c9ff;
+    border: 1px solid #83c9ff;
+}
+.buttons-container input[value="POST"] {
+    margin-left: 10px;
+    background-color: #ffffff;
+    color: #0079d3;
+}
