@@ -6,9 +6,9 @@
 			<div class="downvote" @click="post.upvotes--" />
 		</div>
 		<div class="upper-part">
-			<a class="community">r/{{ post.community }}</a>
+			<a class="community">r/{{ post.subreddit }}</a>
 			<a class="posted-by">u/{{ post.postedBy }}</a>
-			<a class="date-posted">{{ post.date }}</a>
+			<a class="date-posted">{{ post.timestamp }}</a>
 		</div>
 		<div class="post-title">{{ post.title }}</div>
 		<div class="comments">{{ post.comments }} comments</div>

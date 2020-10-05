@@ -2,8 +2,7 @@
 	<div class="feed-container">
 		<div class="post-container">
 			<CreatePost v-show="this.$store.state.tokenFound" />
-			<Post v-bind:key="post.id" v-bind:post="post" />
-			<!-- v-for="post in postsData" -->
+			<Post v-for="post in posts" v-bind:key="post._id" v-bind:post="post" />
 		</div>
 		<div class="featured-communities-container">
 			<h1 class="featured-communities-title">FeaturedCommunities</h1>
@@ -24,7 +23,7 @@ import FeaturedCommunities from '../FeaturedCommunities/FeaturedCommunities.vue'
 export default {
 	data() {
 		return {
-			posts: null,
+			posts: [],
 		};
 	},
 	name: 'Feed',
@@ -32,15 +31,13 @@ export default {
 	mounted() {
 		axios.get('http://localhost:3000/api/posts').then(res => {
 			this.posts = res.data.posts;
-			console.log(this.posts);
 		});
 	},
 	computed: {
 		uniqueCommunities() {
-			const postsData = this.$props.postsData;
 			let uniqueComms = [];
-			postsData.forEach(post => {
-				uniqueComms.push(post.community);
+			this.posts.forEach(post => {
+				uniqueComms.push(post.subreddit);
 			});
 			uniqueComms = new Set(uniqueComms);
 			return uniqueComms;
