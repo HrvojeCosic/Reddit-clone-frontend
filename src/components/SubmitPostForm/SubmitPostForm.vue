@@ -50,12 +50,14 @@ export default {
 			};
 			axios
 				.post('http://localhost:3000/api/posts', newPost)
-				.then(() => {
+				.then(res => {
 					if (newPost.community === '' || newPost.title === '') {
 						this.err = 'Please fill out all the required fields.';
 						return;
 					}
 					this.$router.push('/');
+					//INSTEAD OF LOGGING THE AUTHOR'S USERNAME LIKE NOW, DISPLAY IT
+					console.log(res.data.populatedAuthor.author[0].username);
 				})
 				.catch(err => {
 					console.log(err);
