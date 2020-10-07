@@ -21,9 +21,9 @@
 					<p>{{ post.comments.length }} comments</p>
 				</div>
 			</div>
-			<div class="post submit-comment">
+			<div class="post-submit-comment">
 				<form>
-					<input type="text" placeholder="What are your thoughts" />
+					<div class="comment-input" type="text" contenteditable="true" />
 					<input type="submit" value="COMMENT" />
 				</form>
 			</div>

@@ -1,0 +1,85 @@
+#post-content-container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr 40px;
+  grid-template-rows: 1fr 1fr 150px;
+  grid-template-areas: "voting post-details"
+                       "voting post-details"
+                       "submit-comment submit-comment"
+                       "comments comments";
+  width: 70vw;
+  border: 1px solid black;
+  background-color: #ffffff;
+}
+.post-voting-post {
+  display: flex;
+  grid-area: voting;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  padding: 20px;
+  border-top-left-radius: 10px;
+  }
+.upvote-post {
+  background-color: #2cbd54;
+  width: 20px;
+  height: 20px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  cursor: pointer;
+  }
+.downvote-post {
+  background-color: #f03636;
+  width: 20px;
+  height: 20px;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  cursor: pointer;
+  }
+.post-details {
+  grid-area: post-details;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+.post-upper-part {
+  border: 1px solid black;
+}
+.post-middle-part {
+  border: 1px solid black;
+}
+.post-lower-part {
+  border: 1px solid black;
+}
+.post-submit-comment {
+  display: flex;
+  grid-area: submit-comment;
+  margin: 10px 0 0 40px;
+  border: 1px solid black;
+}
+.post-submit-comment form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.comment-input {
+  outline: none;
+  height: 100%;
+  overflow: auto;
+  border: 1px solid black;
+}
+.post-submit-comment [type="submit"] {
+  align-self: flex-end;
+  width: fit-content;
+  padding: 5px;
+  background-color: orange;
+}
+
+.comments-container {
+  grid-area: comments;
+  margin-top: 50px;
+  background-color: #2cbd54;
+  height: 100px;
+}
