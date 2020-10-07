@@ -9,6 +9,7 @@ export default new Vuex.Store({
 	state: {
 		tokenFound: null,
 		currentUser: '',
+		clickedPost: {},
 	},
 	mutations: {
 		changeJwt(state, jwt) {
@@ -16,6 +17,9 @@ export default new Vuex.Store({
 		},
 		addCurrentUser(state, userEmail) {
 			this.state.currentUser = userEmail;
+		},
+		changeClickedPost(state, clickedPost) {
+			this.state.clickedPost = clickedPost;
 		},
 	},
 });

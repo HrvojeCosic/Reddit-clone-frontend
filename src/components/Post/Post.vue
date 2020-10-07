@@ -9,7 +9,7 @@
 			class="post-link"
 			:to="{ name: 'PostContent', params: { id: post._id } }"
 		>
-			<div class="post-main">
+			<div class="post-main" @click="findClickedPost">
 				<div class="upper-part">
 					<a class="community">r/{{ post.subreddit }}</a>
 					<a class="posted-by">u/{{ post.author[0].username }}</a>
@@ -26,7 +26,30 @@
 export default {
 	name: 'Post',
 	props: ['post'],
-	methods: {},
+	methods: {
+		findClickedPost() {
+			this.$store.state.clickedPost = [];
+			const {
+				upvotes,
+				subreddit,
+				timestamp,
+				title,
+				comments,
+				text,
+			} = this.post;
+			const author = this.post.author[0].username;
+			const clickedPost = {
+				author,
+				title,
+				subreddit,
+				timestamp,
+				comments,
+				upvotes,
+				text,
+			};
+			this.$store.commit('changeClickedPost', clickedPost);
+		},
+	},
 };
 </script>
 
