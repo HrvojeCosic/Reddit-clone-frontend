@@ -1,26 +1,30 @@
 #post-content-container {
   margin: 0 auto;
+  padding-top: 15px;
   display: grid;
   grid-template-columns: auto 1fr 40px;
-  grid-template-rows: 1fr 1fr 150px;
+  grid-template-rows: 20px auto 150px auto;
   grid-template-areas: "voting post-details"
                        "voting post-details"
                        "submit-comment submit-comment"
                        "comments comments";
   width: 70vw;
-  border: 1px solid black;
+  border: 1px solid #edeff1;
+  border-radius: 4px;
   background-color: #ffffff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
 }
 .post-voting-post {
   display: flex;
   grid-area: voting;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 0;
-  padding: 20px;
+  padding: 0 20px;
   border-top-left-radius: 10px;
-  }
+}
 .upvote-post {
   background-color: #2cbd54;
   width: 20px;
@@ -39,24 +43,40 @@
   }
 .post-details {
   grid-area: post-details;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
 }
 .post-upper-part {
-  border: 1px solid black;
+  display: flex;
 }
-.post-middle-part {
-  border: 1px solid black;
+.post-upper-part h3:after {
+  margin-left: 3px;
+  content: '•';
+  font-weight: 400;
+}
+.post-upper-part h3{
+  font-weight: 800;
+  margin-right: 3px;
+}
+.timestamp {
+  margin-top: 7px;
+}
+.post-mid-part h3 {
+  padding: 10px 0;
+  font-weight: 800;
+  font-size: 18px;
+}
+.post-mid-part {
+  font-size: 14px;
+  line-height: 20px;
 }
 .post-lower-part {
-  border: 1px solid black;
+  margin-top: 10px;
 }
 .post-submit-comment {
   display: flex;
   grid-area: submit-comment;
   margin: 10px 0 0 40px;
-  border: 1px solid black;
 }
 .post-submit-comment form {
   display: flex;
@@ -66,20 +86,28 @@
 }
 .comment-input {
   outline: none;
-  height: 100%;
   overflow: auto;
-  border: 1px solid black;
+  padding: 6px;
+  height: 100%;
+  border: 1px solid #edeff1;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.comment-input:empty:before {
+  opacity: 50%;
+  content: "What are your thoughts?";
 }
 .post-submit-comment [type="submit"] {
   align-self: flex-end;
-  width: fit-content;
-  padding: 5px;
-  background-color: orange;
+  margin-top: 5px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #f86e43;
+  cursor: pointer;
 }
-
 .comments-container {
   grid-area: comments;
-  margin-top: 50px;
+  margin: 50px 0 0 40px;
   background-color: #2cbd54;
-  height: 100px;
+  height: calc(100%-50px);
 }

@@ -10,11 +10,11 @@
 			<div class="post-details">
 				<div class="post-upper-part">
 					<h3>r/{{ post.subreddit }}</h3>
-					<p>Posted by u/{{ post.author }}</p>
-					<p>{{ post.timestamp }}</p>
+					<p class="author">Posted by u/{{ post.author }}</p>
 				</div>
+				<p class="timestamp">{{ post.timestamp }}</p>
 				<div class="post-mid-part">
-					<h1>{{ post.title }}</h1>
+					<h3>{{ post.title }}</h3>
 					<p>{{ post.text }}</p>
 				</div>
 				<div class="post-lower-part">
