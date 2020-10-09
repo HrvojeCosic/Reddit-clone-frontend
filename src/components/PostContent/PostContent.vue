@@ -18,7 +18,7 @@
 					<p>{{ post.text }}</p>
 				</div>
 				<div class="post-lower-part">
-					<p>{{ post.comments.length }} comments</p>
+					<p>{{ comments.length }} comments</p>
 				</div>
 			</div>
 			<div class="post-submit-comment">
@@ -28,14 +28,8 @@
 				</form>
 			</div>
 			<div class="comments-container">
-				<div
-					class="comment"
-					v-for="comment in post.comments"
-					:key="comment._id"
-				>
-					<!-- TODO: SET UP COMMENTS -->
-					{{ comment.text }}
-					<!-- TODO: SET UP COMMENTS -->
+				<div v-for="comment in this.comments" :key="comment._id">
+					<div class="comment">{{ comment.content }}</div>
 				</div>
 			</div>
 		</div>
@@ -46,9 +40,26 @@
 import axios from 'axios';
 import Header from '../Header/Header.vue';
 export default {
+	created() {
+		//FETCH ALL COMMENTS OF THE CLICKED-ON POST
+		const postId = this.$store.state.clickedPost._id;
+		axios
+			.get(`http://localhost:3000/api/posts/${postId}`)
+			.then(comments => {
+				const fetchedComments = comments.data.comments;
+				fetchedComments.forEach(comment => {
+					this.comments.push(comment);
+				});
+			})
+			.catch(() => {
+				this.error = 'Failed to retrieve comments';
+			});
+	},
 	data() {
 		return {
 			post: this.$store.state.clickedPost,
+			comments: [],
+			error: '',
 		};
 	},
 	components: { Header },
@@ -58,7 +69,7 @@ export default {
 			axios.post(`http://localhost:3000/api/posts/post/${this.post._id}`, {
 				author: this.$store.state.currentUser,
 				comment,
-				timestamp: new Date(),
+				timestamp: new Date().toLocaleDateString(),
 			});
 		},
 	},
