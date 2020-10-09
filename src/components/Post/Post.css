@@ -1,75 +1,75 @@
 #post-container {
-  display: flex;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border: 1px solid #cccccc;
-  border-radius: 10px;
-  margin-left: 10px;
+	display: flex;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	border: 1px solid #cccccc;
+	border-radius: 10px;
+	margin-left: 10px;
 }
 
 .post-link {
-  width: 100%;
-  text-decoration: none;
-  color: #000000;
+	width: 100%;
+	text-decoration: none;
+	color: #000000;
 }
 
 .post-main {
-  display: grid;
-  justify-content: start;
-  grid-template-areas:
-    "community posted-by date"
-    "title title title"
-    "comments comments comments";
-  grid-gap: 15px 40px;
-  padding: 10px 10px 5px 10px;
-  background-color: #ffffff;
+	display: grid;
+	justify-content: start;
+	grid-template-areas:
+		'community posted-by date'
+		'title title title'
+		'comments comments comments';
+	grid-gap: 15px 40px;
+	padding: 10px 10px 5px 10px;
+	background-color: #ffffff;
 }
 
 .post-voting {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  background-color:#f6f7f8;
-  border-top-left-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	background-color: #f6f7f8;
+	border-top-left-radius: 10px;
 }
 
 .upvote {
-  background-color: #2cbd54;
-  width: 20px;
-  height: 20px;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  cursor: pointer;
+	background-color: #2cbd54;
+	width: 20px;
+	height: 20px;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	cursor: pointer;
 }
 
 .downvote {
-  background-color: #f03636;
-  width: 20px;
-  height: 20px;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  cursor: pointer;
+	background-color: #f03636;
+	width: 20px;
+	height: 20px;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	cursor: pointer;
 }
 
 .community {
-  grid-area: community;
-  margin-right: 10px;
+	grid-area: community;
+	margin-right: 10px;
 }
 
 .posted-by {
-  grid-area: posted-by;
-  margin-right: 10px;
+	grid-area: posted-by;
+	margin-right: 10px;
 }
 
 .date-posted {
-  grid-area: date;
+	grid-area: date;
 }
 
 .post-title {
-  grid-area: title;
+	grid-area: title;
 }
 
 .comments {
-  grid-area: comments;
+	grid-area: comments;
 }

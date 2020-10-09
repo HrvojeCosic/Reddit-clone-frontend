@@ -36,6 +36,7 @@ export default {
 				title,
 				comments,
 				text,
+				_id,
 			} = this.post;
 			const author = this.post.author[0].username;
 			const clickedPost = {
@@ -46,6 +47,7 @@ export default {
 				comments,
 				upvotes,
 				text,
+				_id,
 			};
 			this.$store.commit('changeClickedPost', clickedPost);
 		},

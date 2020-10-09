@@ -22,7 +22,7 @@
 				</div>
 			</div>
 			<div class="post-submit-comment">
-				<form>
+				<form @submit="createNewComment">
 					<div class="comment-input" type="text" contenteditable="true" />
 					<input type="submit" value="COMMENT" />
 				</form>
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Header from '../Header/Header.vue';
 export default {
 	data() {
@@ -51,6 +52,16 @@ export default {
 		};
 	},
 	components: { Header },
+	methods: {
+		createNewComment(e) {
+			const comment = e.target.innerText;
+			axios.post(`http://localhost:3000/api/posts/post/${this.post._id}`, {
+				author: this.$store.state.currentUser,
+				comment,
+				timestamp: new Date(),
+			});
+		},
+	},
 };
 </script>
 
