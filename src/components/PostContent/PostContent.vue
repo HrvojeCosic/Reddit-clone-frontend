@@ -29,7 +29,15 @@
 			</div>
 			<div class="comments-container">
 				<div v-for="comment in this.comments" :key="comment._id">
-					<div class="comment">{{ comment.content }}</div>
+					<div class="comment">
+						<div class="upper-part-comment">
+							<p class="author">{{ comment.author }}</p>
+							<p class="points">{{ comment.upvotes }} points ·</p>
+							<p class="date">{{ comment.timestamp }}</p>
+							<p class="edited" v-show="comment.edited">comment edited</p>
+						</div>
+						<h3 class="content">{{ comment.content }}</h3>
+					</div>
 				</div>
 			</div>
 		</div>

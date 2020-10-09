@@ -108,6 +108,39 @@
 .comments-container {
   grid-area: comments;
   margin: 50px 0 0 40px;
-  background-color: #2cbd54;
   height: calc(100%-50px);
+}
+
+.comment {
+  display: grid;
+  grid-template-areas: 'author points date'
+                       'content content content'
+                       'edited edited edited';
+  justify-content: start;
+  margin: 10px 0;
+  padding: 5px;
+  border-bottom: 1px solid #edeff1;
+}
+.upper-part-comment {
+  display: flex;
+  margin-bottom: 10px;
+}
+.author {
+  margin-right: 5px;
+}
+.points {
+  margin-right: 5px;
+  color: rgb(139, 139, 139);
+}
+.date {
+  color: rgb(139, 139, 139);
+  margin-right: 10px;
+}
+.content {
+  grid-area: content;
+  font-size: 15px;
+}
+.edited {
+  grid-area: edited;
+  color: rgb(139, 139, 139);
 }
