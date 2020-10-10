@@ -56,8 +56,9 @@ export default {
 		axios
 			.get(`http://localhost:3000/api/posts/${this.post._id}`)
 			.then(comments => {
-				this.$store.commit('changeClickedPostComments', comments.data.comments);
-				this.comments = this.$store.state.clickedPostComments;
+				comments.data.comments.forEach(comment => {
+					this.comments.push(comment);
+				});
 			});
 	},
 	data() {
@@ -80,7 +81,6 @@ export default {
 				})
 				.then(newPost => {
 					this.comments.push(newPost.data.comment);
-					this.$store.commit('changeClickedPostComments', this.comments);
 				});
 			this.formKey++;
 		},
