@@ -14,6 +14,7 @@
   background-color: #ffffff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 12px;
+  overflow: hidden;
 }
 .post-voting-post {
   display: flex;
@@ -22,25 +23,27 @@
   align-items: center;
   justify-content: flex-start;
   width: 0;
-  padding: 0 20px;
+  padding: 0 25px 0 20px;
   border-top-left-radius: 10px;
 }
-.upvote-post {
-  background-color: #2cbd54;
-  width: 20px;
-  height: 20px;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  cursor: pointer;
-  }
+.upvote-post, .downvote-post {
+	width: 15px;
+	height: 15px;
+	border-top: 5px solid grey;
+	border-right: 5px solid grey;
+	border-radius: 4px;
+	cursor: pointer;
+	transform: rotate(-45deg);
+}
 .downvote-post {
-  background-color: #f03636;
-  width: 20px;
-  height: 20px;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  cursor: pointer;
-  }
+	transform: rotate(-225deg);
+}
+.upvote-post:hover {
+	border-color: rgb(255,87,34)
+	}
+.downvote-post:hover {
+	border-color: rgb(49, 113, 216);
+}
 .post-details {
   grid-area: post-details;
   display: flex;
@@ -110,16 +113,35 @@
   margin: 50px 0 0 40px;
   height: calc(100%-50px);
 }
-
 .comment {
   display: grid;
   grid-template-areas: 'author points date'
-                       'content content content'
-                       'edited edited edited';
-  justify-content: start;
+                       'content content content';
   margin: 10px 0;
-  padding: 5px;
+  padding: 5px 0;
   border-bottom: 1px solid #edeff1;
+}
+.upvote-comment, .downvote-comment {
+  width: 15px;
+	height: 15px;
+	border-top: 5px solid grey;
+	border-right: 5px solid grey;
+	border-radius: 4px;
+	cursor: pointer;
+	transform: rotate(-45deg);
+}
+.voting-comment {
+  margin-right: 10px;
+  grid-area: voting;
+} 
+.downvote-comment {
+	transform: rotate(-225deg);
+}
+.upvote-comment:hover {
+	border-color: rgb(255,87,34)
+}
+.downvote-comment:hover {
+	border-color: rgb(49, 113, 216);
 }
 .upper-part-comment {
   display: flex;

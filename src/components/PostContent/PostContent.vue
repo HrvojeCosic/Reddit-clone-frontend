@@ -31,6 +31,10 @@
 				<div v-for="comment in this.comments" :key="comment._id">
 					<div class="comment">
 						<div class="upper-part-comment">
+							<div class="voting-comment">
+								<div class="upvote-comment" @click="post.upvotes++" />
+								<div class="downvote-comment" @click="post.upvotes--" />
+							</div>
 							<p class="author">{{ comment.author }}</p>
 							<p class="points">{{ comment.upvotes }} points ·</p>
 							<p class="date">{{ comment.timestamp }}</p>
