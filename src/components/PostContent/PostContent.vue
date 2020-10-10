@@ -53,7 +53,12 @@ import axios from 'axios';
 import Header from '../Header/Header.vue';
 export default {
 	created() {
-		this.fetchComments();
+		axios
+			.get(`http://localhost:3000/api/posts/${this.post._id}`)
+			.then(comments => {
+				this.$store.commit('changeClickedPostComments', comments.data.comments);
+				this.comments = this.$store.state.clickedPostComments;
+			});
 	},
 	data() {
 		return {
@@ -65,33 +70,18 @@ export default {
 	},
 	components: { Header },
 	methods: {
-		fetchComments() {
-			//FETCH ALL COMMENTS OF THE CLICKED-ON POST
-			const postId = this.$store.state.clickedPost._id;
-			axios
-				.get(`http://localhost:3000/api/posts/${postId}`)
-				.then(comments => {
-					const fetchedComments = comments.data.comments;
-					this.comments = [];
-					fetchedComments.forEach(comment => {
-						this.comments.push(comment);
-					});
-				})
-				.catch(() => {
-					this.error = 'Failed to retrieve comments';
-				});
-		},
-		async createNewComment(e) {
+		createNewComment(e) {
 			const comment = e.target.innerText;
-			await axios.post(
-				`http://localhost:3000/api/posts/post/${this.post._id}`,
-				{
+			axios
+				.post(`http://localhost:3000/api/posts/post/${this.post._id}`, {
 					author: this.$store.state.currentUser,
 					comment,
 					timestamp: new Date().toLocaleDateString(),
-				}
-			);
-			this.fetchComments();
+				})
+				.then(newPost => {
+					this.comments.push(newPost.data.comment);
+					this.$store.commit('changeClickedPostComments', this.comments);
+				});
 			this.formKey++;
 		},
 	},
