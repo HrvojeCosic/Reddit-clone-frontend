@@ -22,7 +22,7 @@
 				</div>
 			</div>
 			<div class="post-submit-comment">
-				<form @submit="createNewComment">
+				<form @submit="createNewComment" :key="formKey">
 					<div class="comment-input" type="text" contenteditable="true" />
 					<input type="submit" value="COMMENT" />
 				</form>
@@ -32,8 +32,8 @@
 					<div class="comment">
 						<div class="upper-part-comment">
 							<div class="voting-comment">
-								<div class="upvote-comment" @click="post.upvotes++" />
-								<div class="downvote-comment" @click="post.upvotes--" />
+								<div class="upvote-comment" />
+								<div class="downvote-comment" />
 							</div>
 							<p class="author">{{ comment.author }}</p>
 							<p class="points">{{ comment.upvotes }} points ·</p>
@@ -53,36 +53,46 @@ import axios from 'axios';
 import Header from '../Header/Header.vue';
 export default {
 	created() {
-		//FETCH ALL COMMENTS OF THE CLICKED-ON POST
-		const postId = this.$store.state.clickedPost._id;
-		axios
-			.get(`http://localhost:3000/api/posts/${postId}`)
-			.then(comments => {
-				const fetchedComments = comments.data.comments;
-				fetchedComments.forEach(comment => {
-					this.comments.push(comment);
-				});
-			})
-			.catch(() => {
-				this.error = 'Failed to retrieve comments';
-			});
+		this.fetchComments();
 	},
 	data() {
 		return {
 			post: this.$store.state.clickedPost,
 			comments: [],
 			error: '',
+			formKey: 0,
 		};
 	},
 	components: { Header },
 	methods: {
-		createNewComment(e) {
+		fetchComments() {
+			//FETCH ALL COMMENTS OF THE CLICKED-ON POST
+			const postId = this.$store.state.clickedPost._id;
+			axios
+				.get(`http://localhost:3000/api/posts/${postId}`)
+				.then(comments => {
+					const fetchedComments = comments.data.comments;
+					this.comments = [];
+					fetchedComments.forEach(comment => {
+						this.comments.push(comment);
+					});
+				})
+				.catch(() => {
+					this.error = 'Failed to retrieve comments';
+				});
+		},
+		async createNewComment(e) {
 			const comment = e.target.innerText;
-			axios.post(`http://localhost:3000/api/posts/post/${this.post._id}`, {
-				author: this.$store.state.currentUser,
-				comment,
-				timestamp: new Date().toLocaleDateString(),
-			});
+			await axios.post(
+				`http://localhost:3000/api/posts/post/${this.post._id}`,
+				{
+					author: this.$store.state.currentUser,
+					comment,
+					timestamp: new Date().toLocaleDateString(),
+				}
+			);
+			this.fetchComments();
+			this.formKey++;
 		},
 	},
 };

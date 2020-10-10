@@ -16,7 +16,7 @@
 					<a class="date-posted">{{ post.timestamp }}</a>
 				</div>
 				<div class="post-title">{{ post.title }}</div>
-				<div class="comments">{{ post.comments }} comments</div>
+				<div class="comments">{{ post.comments.length }} comments</div>
 			</div>
 		</router-link>
 	</div>
