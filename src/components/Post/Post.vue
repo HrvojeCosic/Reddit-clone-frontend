@@ -1,10 +1,6 @@
 <template>
 	<div id="post-container">
-		<div class="post-voting">
-			<div class="upvote" @click="post.upvotes++" />
-			<div class="number-of-votes">{{ post.upvotes }}</div>
-			<div class="downvote" @click="post.upvotes--" />
-		</div>
+		<PostVoting :postUpvotes="post.upvotes" />
 		<router-link
 			class="post-link"
 			:to="{ name: 'PostContent', params: { id: post._id } }"
@@ -23,7 +19,9 @@
 </template>
 
 <script>
+import PostVoting from '../PostVoting/PostVoting.vue';
 export default {
+	components: { PostVoting },
 	name: 'Post',
 	props: ['post'],
 	methods: {

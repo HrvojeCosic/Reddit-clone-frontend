@@ -1,0 +1,42 @@
+.post-voting {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	background-color: #f6f7f8;
+	border-top-left-radius: 10px;
+	max-width: 35px;
+}
+.upvote, .downvote {
+	width: 15px;
+	height: 15px;
+	border-top: 5px solid grey;
+	border-right: 5px solid grey;
+	border-radius: 4px;
+	cursor: pointer;
+    transform: rotate(-45deg);
+    transition: 0.5s all;
+    margin: 5px;
+}
+.downvote {
+	transform: rotate(-225deg)
+}
+.upvote:hover {
+	border-color: rgb(255,87,34)
+	}
+.downvote:hover {
+	border-color: rgb(49, 113, 216);
+}
+.upvotedPost {
+    border-color: rgb(255,87,34);
+}
+.downvotedPost {
+	border-color: rgb(49, 113, 216);
+}
+.upvotedNumber {
+    color: rgb(255,87,34);
+}
+.downvotedNumber {
+    color: rgb(49, 113, 216);
+}
