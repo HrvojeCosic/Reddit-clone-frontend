@@ -3,6 +3,7 @@
 		class="search"
 		placeholder="Search for posts"
 		@keyup.enter="searchPosts"
+		v-show="this.$route.path == '/'"
 	/>
 </template>
 
