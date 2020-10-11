@@ -6,7 +6,7 @@
 				<h1>RedditLight</h1>
 			</div>
 		</router-link>
-		<input class="search" placeholder="Search" />
+		<Searchbar />
 		<div class="buttons-log-sign">
 			<router-link
 				to="/log-in"
@@ -37,6 +37,7 @@
 <script>
 import axios from 'axios';
 import router from '../../router/index';
+import Searchbar from '../Searchbar/Searchbar.vue';
 export default {
 	data() {
 		return {
@@ -70,6 +71,7 @@ export default {
 			});
 		},
 	},
+	components: { Searchbar },
 };
 </script>
 

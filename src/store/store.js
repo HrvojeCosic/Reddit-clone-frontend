@@ -10,6 +10,7 @@ export default new Vuex.Store({
 		tokenFound: null,
 		currentUser: '',
 		clickedPost: {},
+		postsToShow: [],
 	},
 	mutations: {
 		changeJwt(state, jwt) {
@@ -20,6 +21,12 @@ export default new Vuex.Store({
 		},
 		changeClickedPost(state, clickedPost) {
 			this.state.clickedPost = clickedPost;
+		},
+		changePostsToShow(state, newPosts) {
+			this.state.postsToShow = newPosts;
+		},
+		pushNewPost(state, newPost) {
+			this.state.postsToShow.push(newPost);
 		},
 	},
 });

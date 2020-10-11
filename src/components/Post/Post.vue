@@ -12,7 +12,7 @@
 			<div class="post-main" @click="findClickedPost">
 				<div class="upper-part">
 					<a class="community">r/{{ post.subreddit }}</a>
-					<a class="posted-by">u/{{ post.author[0].username }}</a>
+					<a class="posted-by">u/{{ post.author.username }}</a>
 					<a class="date-posted">{{ post.timestamp }}</a>
 				</div>
 				<div class="post-title">{{ post.title }}</div>
@@ -38,7 +38,7 @@ export default {
 				text,
 				_id,
 			} = this.post;
-			const author = this.post.author[0].username;
+			const author = this.post.author.username;
 			const clickedPost = {
 				author,
 				title,
