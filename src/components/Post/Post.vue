@@ -1,6 +1,6 @@
 <template>
 	<div id="post-container">
-		<PostVoting :postUpvotes="post.upvotes" />
+		<PostVoting :post="post" />
 		<router-link
 			class="post-link"
 			:to="{ name: 'PostContent', params: { id: post._id } }"

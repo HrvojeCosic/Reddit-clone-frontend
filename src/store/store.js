@@ -11,6 +11,8 @@ export default new Vuex.Store({
 		currentUser: '',
 		clickedPost: {},
 		postsToShow: [],
+		upvotedPosts: [],
+		downvotedPosts: [],
 	},
 	mutations: {
 		changeJwt(state, jwt) {
@@ -26,7 +28,33 @@ export default new Vuex.Store({
 			this.state.postsToShow = newPosts;
 		},
 		pushNewPost(state, newPost) {
-			this.state.postsToShow.push(newPost);
+			state.postsToShow.push(newPost);
+		},
+		pushUpvotedPost(state, post) {
+			if (!state.upvotedPosts.includes(post)) {
+				state.upvotedPosts.push(post);
+				console.log(state.upvotedPosts);
+			}
+		},
+		pushDownvotedPost(state, post) {
+			if (!state.downvotedPosts.includes(post)) {
+				state.downvotedPosts.push(post);
+				console.log(state.downvotedPosts);
+			}
+		},
+		removeUpvotedPost(state, post) {
+			const filtered = state.upvotedPosts.filter(upvotedPost => {
+				return upvotedPost !== post;
+			});
+			state.upvotedPosts = filtered;
+			console.log(state.upvotedPosts);
+		},
+		removeDownvotedPost(state, post) {
+			const filtered = state.downvotedPosts.filter(downvotedPost => {
+				return downvotedPost !== post;
+			});
+			state.downvotedPosts = filtered;
+			console.log(state.downvotedPosts);
 		},
 	},
 });
