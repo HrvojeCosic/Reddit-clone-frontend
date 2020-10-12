@@ -16,7 +16,7 @@
 	border-radius: 4px;
 	cursor: pointer;
     transform: rotate(-45deg);
-    transition: 0.5s all;
+    transition: 0.2s all;
     margin: 5px;
 }
 .downvote {

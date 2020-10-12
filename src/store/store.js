@@ -16,16 +16,16 @@ export default new Vuex.Store({
 	},
 	mutations: {
 		changeJwt(state, jwt) {
-			this.state.tokenFound = jwt;
+			state.tokenFound = jwt;
 		},
 		addCurrentUser(state, userEmail) {
-			this.state.currentUser = userEmail;
+			state.currentUser = userEmail;
 		},
 		changeClickedPost(state, clickedPost) {
-			this.state.clickedPost = clickedPost;
+			state.clickedPost = clickedPost;
 		},
 		changePostsToShow(state, newPosts) {
-			this.state.postsToShow = newPosts;
+			state.postsToShow = newPosts;
 		},
 		pushNewPost(state, newPost) {
 			state.postsToShow.push(newPost);
@@ -33,13 +33,11 @@ export default new Vuex.Store({
 		pushUpvotedPost(state, post) {
 			if (!state.upvotedPosts.includes(post)) {
 				state.upvotedPosts.push(post);
-				console.log(state.upvotedPosts);
 			}
 		},
 		pushDownvotedPost(state, post) {
 			if (!state.downvotedPosts.includes(post)) {
 				state.downvotedPosts.push(post);
-				console.log(state.downvotedPosts);
 			}
 		},
 		removeUpvotedPost(state, post) {
@@ -47,14 +45,12 @@ export default new Vuex.Store({
 				return upvotedPost !== post;
 			});
 			state.upvotedPosts = filtered;
-			console.log(state.upvotedPosts);
 		},
 		removeDownvotedPost(state, post) {
 			const filtered = state.downvotedPosts.filter(downvotedPost => {
 				return downvotedPost !== post;
 			});
 			state.downvotedPosts = filtered;
-			console.log(state.downvotedPosts);
 		},
 	},
 });

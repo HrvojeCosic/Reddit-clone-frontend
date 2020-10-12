@@ -29,56 +29,29 @@
 
 <script>
 export default {
-	data() {
-		return {
-			upvotedPostsArr: this.$store.state.upvotedPosts,
-			downvotedPostsArr: this.$store.state.downvotedPosts,
-			upvoteToggle: false,
-			downvoteToggle: false,
-		};
-	},
 	props: ['post'],
 	methods: {
 		upvotePost(postId) {
-			if (this.downvoteToggle) {
+			if (this.$store.state.downvotedPosts.includes(postId)) {
 				this.$store.commit('removeDownvotedPost', postId);
 				this.$store.commit('pushUpvotedPost', postId);
-				this.downvoteToggle = false;
-				this.upvoteToggle = true;
-				this.postUpvotes += 2; //AVOID MUTATING A PROP DIRECTLY ERRROR... TODO INSTEAD: COMMIT('')
-				//ALSO REPLACE upvoteToggle and downvoteToggle with vuex state properties.
 				return;
 			}
-			if (this.upvoteToggle) {
+			if (this.$store.state.upvotedPosts.includes(postId)) {
 				this.$store.commit('removeUpvotedPost', postId);
-				this.upvoteToggle = false;
-				this.postUpvotes--; //AVOID MUTATING A PROP DIRECTLY
 				return;
-			} else {
-				this.upvoteToggle = true;
-				this.downvoteToggle = false;
-				this.postUpvotes++; //AVOID MUTATING A PROP DIRECTLY
 			}
 			this.$store.commit('pushUpvotedPost', postId);
 		},
 		downvotePost(postId) {
-			if (this.upvoteToggle) {
+			if (this.$store.state.upvotedPosts.includes(postId)) {
 				this.$store.commit('removeUpvotedPost', postId);
 				this.$store.commit('pushDownvotedPost', postId);
-				this.upvoteToggle = false;
-				this.downvoteToggle = true;
-				this.postUpvotes -= 2; //AVOID MUTATING A PROP DIRECTLY
 				return;
 			}
-			if (this.downvoteToggle) {
+			if (this.$store.state.downvotedPosts.includes(postId)) {
 				this.$store.commit('removeDownvotedPost', postId);
-				this.downvoteToggle = false;
-				this.postUpvotes++; //AVOID MUTATING A PROP DIRECTLY
 				return;
-			} else {
-				this.downvoteToggle = true;
-				this.upvoteToggle = false;
-				this.postUpvotes--; //AVOID MUTATING A PROP DIRECTLY
 			}
 			this.$store.commit('pushDownvotedPost', postId);
 		},
