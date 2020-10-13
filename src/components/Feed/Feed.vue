@@ -3,7 +3,7 @@
 		<div class="post-container">
 			<CreatePost v-show="this.$store.state.tokenFound" />
 			<Post
-				v-for="post in this.postsToShow"
+				v-for="post in this.$store.state.postsToShow"
 				v-bind:key="post._id"
 				v-bind:post="post"
 			/>
@@ -25,16 +25,11 @@ import CreatePost from '../CreatePost/CreatePost';
 import Post from '../Post/Post.vue';
 import FeaturedCommunities from '../FeaturedCommunities/FeaturedCommunities.vue';
 export default {
-	data() {
-		return {
-			postsToShow: [],
-		};
-	},
 	name: 'Feed',
 	components: { Post, FeaturedCommunities, CreatePost },
-	created() {
+	beforeCreate() {
 		axios.get('http://localhost:3000/api/posts/').then(res => {
-			this.postsToShow = res.data.posts;
+			this.$store.commit('changePostsToShow', res.data.posts);
 		});
 	},
 	computed: {

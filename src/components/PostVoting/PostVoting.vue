@@ -15,7 +15,7 @@
 				downvotedNumber: this.$store.state.downvotedPosts.includes(post._id),
 			}"
 		>
-			{{ upvotes }}
+			{{ post.upvotes }}
 		</div>
 		<div
 			class="downvote"
