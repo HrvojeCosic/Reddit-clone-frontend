@@ -29,19 +29,7 @@
 			</div>
 			<div class="comments-container">
 				<div v-for="comment in this.comments" :key="comment._id">
-					<div class="comment">
-						<div class="upper-part-comment">
-							<div class="voting-comment">
-								<div class="upvote-comment" />
-								<div class="downvote-comment" />
-							</div>
-							<p class="author">{{ comment.author }}</p>
-							<p class="points">{{ comment.upvotes }} points ·</p>
-							<p class="date">{{ comment.timestamp }}</p>
-							<p class="edited" v-show="comment.edited">comment edited</p>
-						</div>
-						<h3 class="content">{{ comment.content }}</h3>
-					</div>
+					<PostComment :comment="comment" />
 				</div>
 			</div>
 		</div>
@@ -51,6 +39,7 @@
 <script>
 import axios from 'axios';
 import Header from '../Header/Header.vue';
+import PostComment from '../PostComment/PostComment.vue';
 export default {
 	created() {
 		axios
@@ -69,7 +58,7 @@ export default {
 			formKey: 0,
 		};
 	},
-	components: { Header },
+	components: { Header, PostComment },
 	methods: {
 		createNewComment(e) {
 			const comment = e.target.innerText;
