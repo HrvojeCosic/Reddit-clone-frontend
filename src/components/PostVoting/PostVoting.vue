@@ -32,11 +32,13 @@ export default {
 	props: ['post'],
 	methods: {
 		upvotePost(postId) {
+			//IF POST IS CURRENTLY DOWNVOTED
 			if (this.$store.state.downvotedPosts.includes(postId)) {
 				this.$store.commit('removeDownvotedPost', postId);
 				this.$store.commit('pushUpvotedPost', postId);
 				return;
 			}
+			//IF POST IS CURRENTLY UPVOTED
 			if (this.$store.state.upvotedPosts.includes(postId)) {
 				this.$store.commit('removeUpvotedPost', postId);
 				return;
@@ -44,11 +46,13 @@ export default {
 			this.$store.commit('pushUpvotedPost', postId);
 		},
 		downvotePost(postId) {
+			//IF POST IS CURRENTLY UPVOTED
 			if (this.$store.state.upvotedPosts.includes(postId)) {
 				this.$store.commit('removeUpvotedPost', postId);
 				this.$store.commit('pushDownvotedPost', postId);
 				return;
 			}
+			//IF POST IS CURRENTLY DOWNVOTED
 			if (this.$store.state.downvotedPosts.includes(postId)) {
 				this.$store.commit('removeDownvotedPost', postId);
 				return;
