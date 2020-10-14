@@ -34,37 +34,19 @@ export default new Vuex.Store({
 		pushUpvotedPost(state, post) {
 			if (!state.upvotedPosts.includes(post)) {
 				state.upvotedPosts.push(post);
-				axios
-					.put('http://localhost:3000/api/posts/votePost', {
-						post,
-						action: 'addVote',
-					})
-					.then(() => {
-						//Update object in the state as well
-						for (let i = 0; i < state.postsToShow.length; i++) {
-							if (state.postsToShow[i]._id === post) {
-								return (state.postsToShow[i].upvotes += 1);
-							}
-						}
-					});
+				axios.put('http://localhost:3000/api/posts/votePost', {
+					post,
+					action: 'addVote',
+				});
 			}
 		},
 		pushDownvotedPost(state, post) {
 			if (!state.downvotedPosts.includes(post)) {
 				state.downvotedPosts.push(post);
-				axios
-					.put('http://localhost:3000/api/posts/votePost', {
-						post,
-						action: 'subtractVote',
-					})
-					.then(() => {
-						//Update object in the state as well
-						for (let i = 0; i < state.postsToShow.length; i++) {
-							if (state.postsToShow[i]._id === post) {
-								return (state.postsToShow[i].upvotes -= 1);
-							}
-						}
-					});
+				axios.put('http://localhost:3000/api/posts/votePost', {
+					post,
+					action: 'subtractVote',
+				});
 			}
 		},
 		removeUpvotedPost(state, post) {
@@ -72,38 +54,20 @@ export default new Vuex.Store({
 				return upvotedPost !== post;
 			});
 			state.upvotedPosts = filtered;
-			axios
-				.put('http://localhost:3000/api/posts/votePost', {
-					post,
-					action: 'subtractVote',
-				})
-				.then(() => {
-					//Update object in the state as well
-					for (let i = 0; i < state.postsToShow.length; i++) {
-						if (state.postsToShow[i]._id === post) {
-							return (state.postsToShow[i].upvotes -= 1);
-						}
-					}
-				});
+			axios.put('http://localhost:3000/api/posts/votePost', {
+				post,
+				action: 'subtractVote',
+			});
 		},
 		removeDownvotedPost(state, post) {
 			const filtered = state.downvotedPosts.filter(downvotedPost => {
 				return downvotedPost !== post;
 			});
 			state.downvotedPosts = filtered;
-			axios
-				.put('http://localhost:3000/api/posts/votePost', {
-					post,
-					action: 'addVote',
-				})
-				.then(() => {
-					//Update object in the state as well
-					for (let i = 0; i < state.postsToShow.length; i++) {
-						if (state.postsToShow[i]._id === post) {
-							return (state.postsToShow[i].upvotes += 1);
-						}
-					}
-				});
+			axios.put('http://localhost:3000/api/posts/votePost', {
+				post,
+				action: 'addVote',
+			});
 		},
 	},
 });

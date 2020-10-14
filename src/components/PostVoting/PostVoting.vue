@@ -36,28 +36,33 @@ export default {
 			if (this.$store.state.downvotedPosts.includes(postId)) {
 				this.$store.commit('removeDownvotedPost', postId);
 				this.$store.commit('pushUpvotedPost', postId);
+				this.post.upvotes += 2;
 				return;
 			}
 			//IF POST IS CURRENTLY UPVOTED
 			if (this.$store.state.upvotedPosts.includes(postId)) {
 				this.$store.commit('removeUpvotedPost', postId);
+				this.post.upvotes--;
 				return;
 			}
 			this.$store.commit('pushUpvotedPost', postId);
-			this.upvotes++;
+			this.post.upvotes++;
 		},
 		downvotePost(postId) {
 			//IF POST IS CURRENTLY UPVOTED
 			if (this.$store.state.upvotedPosts.includes(postId)) {
 				this.$store.commit('removeUpvotedPost', postId);
 				this.$store.commit('pushDownvotedPost', postId);
+				this.post.upvotes -= 2;
 				return;
 			}
 			//IF POST IS CURRENTLY DOWNVOTED
 			if (this.$store.state.downvotedPosts.includes(postId)) {
 				this.$store.commit('removeDownvotedPost', postId);
+				this.post.upvotes++;
 				return;
 			}
+			this.post.upvotes--;
 			this.$store.commit('pushDownvotedPost', postId);
 		},
 	},

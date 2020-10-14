@@ -3,12 +3,12 @@
 		<Header />
 		<div id="post-content-container">
 			<div class="post-voting">
-				<PostVoting :post="this.$route.params.post" />
+				<PostVoting :post="post" />
 			</div>
 			<div class="post-details">
 				<div class="post-upper-part">
 					<h3>r/{{ post.subreddit }}</h3>
-					<p class="author">Posted by u/{{ post.author }}</p>
+					<p class="author">Posted by u/{{ post.author.username }}</p>
 				</div>
 				<p class="timestamp">{{ post.timestamp }}</p>
 				<div class="post-mid-part">
@@ -42,11 +42,12 @@ import PostVoting from '../PostVoting/PostVoting.vue';
 export default {
 	created() {
 		axios
-			.get(`http://localhost:3000/api/posts/${this.post._id}`)
-			.then(comments => {
-				comments.data.comments.forEach(comment => {
+			.get(`http://localhost:3000/api/posts/post/${this.post._id}`)
+			.then(res => {
+				res.data.post.comments.forEach(comment => {
 					this.comments.push(comment);
 				});
+				this.post = res.data.post;
 			});
 	},
 	data() {
