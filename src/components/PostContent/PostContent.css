@@ -3,7 +3,7 @@
   padding-top: 15px;
   display: grid;
   grid-template-columns: auto 1fr 40px;
-  grid-template-rows: 20px auto 150px auto;
+  grid-template-rows: 50px auto 150px auto;
   grid-template-areas: "voting post-details"
                        "voting post-details"
                        "submit-comment submit-comment"
@@ -15,34 +15,6 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 12px;
   overflow: hidden;
-}
-.post-voting-post {
-  display: flex;
-  grid-area: voting;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 0;
-  padding: 0 25px 0 20px;
-  border-top-left-radius: 10px;
-}
-.upvote-post, .downvote-post {
-	width: 15px;
-	height: 15px;
-	border-top: 5px solid grey;
-	border-right: 5px solid grey;
-	border-radius: 4px;
-	cursor: pointer;
-	transform: rotate(-45deg);
-}
-.downvote-post {
-	transform: rotate(-225deg);
-}
-.upvote-post:hover {
-	border-color: rgb(255,87,34)
-	}
-.downvote-post:hover {
-	border-color: rgb(49, 113, 216);
 }
 .post-details {
   grid-area: post-details;

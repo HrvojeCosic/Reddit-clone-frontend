@@ -30,24 +30,17 @@
 <script>
 export default {
 	props: ['post'],
-	data() {
-		return {
-			upvotes: this.post.upvotes,
-		};
-	},
 	methods: {
 		upvotePost(postId) {
 			//IF POST IS CURRENTLY DOWNVOTED
 			if (this.$store.state.downvotedPosts.includes(postId)) {
 				this.$store.commit('removeDownvotedPost', postId);
 				this.$store.commit('pushUpvotedPost', postId);
-				this.upvotes += 2;
 				return;
 			}
 			//IF POST IS CURRENTLY UPVOTED
 			if (this.$store.state.upvotedPosts.includes(postId)) {
 				this.$store.commit('removeUpvotedPost', postId);
-				this.upvotes--;
 				return;
 			}
 			this.$store.commit('pushUpvotedPost', postId);
@@ -58,17 +51,14 @@ export default {
 			if (this.$store.state.upvotedPosts.includes(postId)) {
 				this.$store.commit('removeUpvotedPost', postId);
 				this.$store.commit('pushDownvotedPost', postId);
-				this.upvotes -= 2;
 				return;
 			}
 			//IF POST IS CURRENTLY DOWNVOTED
 			if (this.$store.state.downvotedPosts.includes(postId)) {
 				this.$store.commit('removeDownvotedPost', postId);
-				this.upvotes++;
 				return;
 			}
 			this.$store.commit('pushDownvotedPost', postId);
-			this.upvotes--;
 		},
 	},
 };

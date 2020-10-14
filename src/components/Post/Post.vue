@@ -3,7 +3,7 @@
 		<PostVoting :post="post" />
 		<router-link
 			class="post-link"
-			:to="{ name: 'PostContent', params: { id: post._id } }"
+			:to="{ name: 'PostContent', params: { id: post._id, post } }"
 		>
 			<div class="post-main" @click="findClickedPost">
 				<div class="upper-part">

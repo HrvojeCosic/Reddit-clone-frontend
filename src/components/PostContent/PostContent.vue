@@ -2,10 +2,8 @@
 	<div>
 		<Header />
 		<div id="post-content-container">
-			<div class="post-voting-post">
-				<div class="upvote-post" @click="post.upvotes++" />
-				<div class="number-of-votes-post">{{ post.upvotes }}</div>
-				<div class="downvote-post" @click="post.upvotes--" />
+			<div class="post-voting">
+				<PostVoting :post="this.$route.params.post" />
 			</div>
 			<div class="post-details">
 				<div class="post-upper-part">
@@ -40,6 +38,7 @@
 import axios from 'axios';
 import Header from '../Header/Header.vue';
 import PostComment from '../PostComment/PostComment.vue';
+import PostVoting from '../PostVoting/PostVoting.vue';
 export default {
 	created() {
 		axios
@@ -58,7 +57,7 @@ export default {
 			formKey: 0,
 		};
 	},
-	components: { Header, PostComment },
+	components: { Header, PostComment, PostVoting },
 	methods: {
 		createNewComment(e) {
 			const comment = e.target.innerText;
