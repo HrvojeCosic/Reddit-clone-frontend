@@ -17,7 +17,6 @@ export default {
 					{ action: 'upvote' }
 				)
 				.then(newComment => {
-					console.log(newComment);
 					this.$emit('update-upvotes', newComment.data.updatedComment.upvotes);
 				})
 				.catch(err => {
@@ -25,10 +24,17 @@ export default {
 				});
 		},
 		downvoteComment() {
-			axios.put(
-				`http://localhost:3000/api/comments/comment/vote/${this.comment._id}`,
-				{ action: 'downvote' }
-			);
+			axios
+				.put(
+					`http://localhost:3000/api/comments/comment/vote/${this.comment._id}`,
+					{ action: 'downvote' }
+				)
+				.then(newComment => {
+					this.$emit('update-upvotes', newComment.data.updatedComment.upvotes);
+				})
+				.catch(err => {
+					console.log(err);
+				});
 		},
 	},
 };
