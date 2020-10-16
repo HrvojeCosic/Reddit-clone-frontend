@@ -24,7 +24,7 @@ input[placeholder="Choose a community"] {
     padding: 8px;
     margin-top: 5px;
     outline: none;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 .form-container form {
     display: flex;
@@ -34,7 +34,7 @@ input[placeholder="Choose a community"] {
     padding: 10px;
     background-color: #ffffff;
     border: 1px solid #d8d8d8;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 .form-container form input:focus {
     border: 1px solid black;
@@ -44,12 +44,12 @@ input[placeholder="Choose a community"] {
     height: 50px;
     padding: 10px;
     margin-bottom: 20px;
-    border-radius: 5px;
+    border-radius: 4px;
     border: 1px solid #d8d8d8;
 }
 .form-container input[placeholder="Text (optional)"] {
     padding: 10px 10px 150px 10px;
-    border-radius: 5px;
+    border-radius: 4px;
     border: 1px solid #d8d8d8;
 }
 .buttons-container {

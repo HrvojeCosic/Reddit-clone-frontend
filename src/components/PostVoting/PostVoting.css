@@ -5,7 +5,7 @@
 	justify-content: center;
 	padding: 10px;
 	background-color: #f6f7f8;
-	border-top-left-radius: 10px;
+	border-radius: 4px 0 0 4px;
 	max-width: 35px;
 }
 .upvote, .downvote {

@@ -3,5 +3,6 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 font-size: 0.95em;
 padding: 15px;
 background-color: #ffffff;
-border-bottom: 1px solid #cccccc
+border-bottom: 1px solid #cccccc;
+overflow-wrap: break-word;
 }
