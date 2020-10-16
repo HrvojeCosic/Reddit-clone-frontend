@@ -23,7 +23,7 @@ export default {
 	props: ['comment'],
 	methods: {
 		updateUpvotes(upvotes) {
-			this.commentUpvotes = upvotes;
+			this.commentUpvotes += upvotes;
 		},
 	},
 };
