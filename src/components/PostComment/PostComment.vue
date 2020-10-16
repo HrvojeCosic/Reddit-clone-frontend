@@ -3,8 +3,11 @@
 		<div class="upper-part-comment">
 			<CommentVoting :comment="comment" v-on:update-upvotes="updateUpvotes" />
 			<p class="author">{{ comment.author }}</p>
-			<p class="points">{{ commentUpvotes }} points ·</p>
-			<p class="date">{{ comment.timestamp }}</p>
+			<div class="points-date">
+				<p class="points">{{ commentUpvotes }} points</p>
+				<p class="date">{{ comment.timestamp }}</p>
+			</div>
+
 			<p class="edited" v-show="comment.edited">comment edited</p>
 		</div>
 		<h3 class="content">{{ comment.content }}</h3>

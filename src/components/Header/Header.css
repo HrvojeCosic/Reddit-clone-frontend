@@ -1,12 +1,12 @@
 #header {
   display: flex;
+  width: 100%;
   position: sticky;
 	z-index: 100;
   top: 0;
   align-items: center;
   justify-content: space-between;
   height: 50px;
-  width: 100%;
   background-color: #ffffff;
   border-bottom: 1px solid #edeff1;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -89,26 +89,4 @@ box-shadow: 2px 2px 7px 0px rgba(237,239,241,1);
 .logout-btn {
   margin-left: 10px;
   color: #FF5722;
-}
-
-@media only screen and (max-width: 735px) {
-  .title h1 {
-    display: none;
-  }
-  .search {
-    margin: 5px;
-  }
-}
-
-@media only screen and (max-width: 590px) {
-  .search {
-    min-width: 1px;
-  }
-  #header {
-    justify-content: flex-start;
-  }
-  .sign-up-btn,
-  .log-in-btn {
-    width: 120px;
-  }
 }

@@ -3,7 +3,7 @@
 		<Header />
 		<div id="post-content-container">
 			<div class="post-voting">
-				<PostVoting :post="post" />
+				<PostVoting :post="post" :style="{ backgroundColor: 'white' }" />
 			</div>
 			<div class="post-details">
 				<div class="post-upper-part">
