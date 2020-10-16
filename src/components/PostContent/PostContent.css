@@ -41,6 +41,10 @@
   font-weight: 800;
   font-size: 18px;
 }
+.post-mid-part p {
+  width: calc(70vw - 80px);
+  overflow-wrap: break-word;
+}
 .post-mid-part {
   font-size: 14px;
   line-height: 20px;

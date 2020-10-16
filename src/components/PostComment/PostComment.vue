@@ -28,3 +28,10 @@ export default {
 	},
 };
 </script>
+
+<style scoped>
+.content {
+	width: calc(70vw - 70px);
+	overflow-wrap: break-word;
+}
+</style>
