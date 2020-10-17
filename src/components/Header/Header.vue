@@ -20,9 +20,14 @@
 				v-show="!$store.state.tokenFound"
 				>SIGN UP</router-link
 			>
-			<div v-show="$store.state.tokenFound" class="logged-in-user">
-				<h3>{{ username }}</h3>
-			</div>
+			<router-link
+				:to="{ name: 'UserProfile', params: { user_id } }"
+				style="text-decoration: none; color: inherit"
+			>
+				<div v-show="$store.state.tokenFound" class="logged-in-user">
+					<h3>{{ username }}</h3>
+				</div>
+			</router-link>
 			<button
 				v-show="$store.state.tokenFound"
 				@click="logout"
@@ -42,6 +47,7 @@ export default {
 	data() {
 		return {
 			username: '',
+			user_id: '.',
 		};
 	},
 	mounted() {
@@ -52,6 +58,7 @@ export default {
 				})
 				.then(res => {
 					this.username = res.data.user.username;
+					this.user_id = res.data.user.id;
 				})
 				.catch(err => {
 					console.log(err);

@@ -46,7 +46,7 @@ export default {
 			password: '',
 			repeatPassword: '',
 			email: '',
-			createdAt: new Date(),
+			createdAt: new Date().toLocaleDateString(),
 			alert: '',
 			success: 'signed-up',
 			failed: 'signup-failed',

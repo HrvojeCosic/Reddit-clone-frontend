@@ -6,6 +6,7 @@ import SignUpPage from '../components/SignUpPage/SignUpPage.vue';
 import Header from '../components/Header/Header.vue';
 import SubmitPostForm from '../components/SubmitPostForm/SubmitPostForm.vue';
 import PostContent from '../components/PostContent/PostContent.vue';
+import UserProfile from '../components/UserProfile/UserProfile.vue';
 
 Vue.use(VueRouter);
 
@@ -35,6 +36,12 @@ const routes = [
 		path: '/post/:id',
 		name: 'PostContent',
 		component: PostContent,
+		props: true,
+	},
+	{
+		path: '/user/:user_id',
+		name: 'UserProfile',
+		component: UserProfile,
 		props: true,
 	},
 ];
