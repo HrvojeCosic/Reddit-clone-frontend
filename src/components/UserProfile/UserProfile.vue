@@ -1,13 +1,24 @@
 <template>
 	<div>
-		{{ username }}
-		{{ timestamp }}
-		{{ posts }}
+		<Header />
+		<div id="user-profile-container">
+			<div class="user-overview">
+				<div class="username">u/{{ username }}</div>
+				<div class="user-timestamp">Created: {{ timestamp }}</div>
+				<div># of posts: {{ posts.length }}</div>
+			</div>
+			<div class="user-posts-container" v-for="post in posts" :key="post._id">
+				<Post v-bind:post="post" />
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
+import Header from '../Header/Header.vue';
+import Post from '../Post/Post.vue';
 import axios from 'axios';
+
 export default {
 	created() {
 		axios
@@ -26,6 +37,7 @@ export default {
 			posts: [],
 		};
 	},
+	components: { Header, Post },
 	props: ['user_id'],
 };
 </script>
