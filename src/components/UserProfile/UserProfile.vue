@@ -3,12 +3,15 @@
 		<Header />
 		<div id="user-profile-container">
 			<div class="user-overview">
+				<img src="../../assets/profile-picture.png" class="profile-picture" />
 				<div class="username">u/{{ username }}</div>
 				<div class="user-timestamp">Created: {{ timestamp }}</div>
-				<div># of posts: {{ posts.length }}</div>
+				<div>posts: {{ posts.length }}</div>
 			</div>
-			<div class="user-posts-container" v-for="post in posts" :key="post._id">
-				<Post v-bind:post="post" />
+			<div class="posts-user-profile">
+				<div v-for="post in posts" :key="post._id">
+					<Post v-bind:post="post" v-bind:classProp="'user-profile'" />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -41,3 +44,7 @@ export default {
 	props: ['user_id'],
 };
 </script>
+
+<style>
+@import './UserProfile.css';
+</style>

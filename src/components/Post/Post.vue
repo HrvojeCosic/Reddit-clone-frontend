@@ -1,5 +1,11 @@
 <template>
-	<div id="post-container">
+	<div
+		v-bind:id="[
+			classProp === 'user-profile'
+				? profilePagePostContainer
+				: mainPagePostContainer,
+		]"
+	>
 		<PostVoting :post="post" />
 		<router-link
 			class="post-link"
@@ -23,7 +29,13 @@ import PostVoting from '../PostVoting/PostVoting.vue';
 export default {
 	components: { PostVoting },
 	name: 'Post',
-	props: ['post'],
+	props: ['post', 'classProp'],
+	data() {
+		return {
+			mainPagePostContainer: 'post-container',
+			profilePagePostContainer: 'profile-post-container',
+		};
+	},
 	methods: {
 		findClickedPost() {
 			this.$store.state.clickedPost = [];
