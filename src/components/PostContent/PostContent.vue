@@ -8,7 +8,18 @@
 			<div class="post-details">
 				<div class="post-upper-part">
 					<h3>r/{{ post.subreddit }}</h3>
-					<p class="author">Posted by u/{{ post.author.username }}</p>
+
+					<p class="author">
+						Posted by
+						<router-link
+							class="link"
+							:to="{
+								name: 'UserProfile',
+								params: { user_id: post.author._id },
+							}"
+							>u/{{ post.author.username }}
+						</router-link>
+					</p>
 				</div>
 				<p class="timestamp">{{ post.timestamp }}</p>
 				<div class="post-mid-part">

@@ -34,6 +34,13 @@
 	grid-area: community;
 	margin-right: 10px;
 }
+.link {
+	text-decoration: none;
+	color: #000000;
+}
+.link:hover {
+	text-decoration: underline;
+}
 
 .posted-by {
 	grid-area: posted-by;

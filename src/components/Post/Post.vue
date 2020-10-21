@@ -14,7 +14,14 @@
 			<div class="post-main" @click="findClickedPost">
 				<div class="upper-part">
 					<a class="community">r/{{ post.subreddit }}</a>
-					<a class="posted-by">u/{{ post.author.username }}</a>
+					<router-link
+						class="link"
+						:to="{
+							name: 'UserProfile',
+							params: { user_id: post.author._id },
+						}"
+						><a class="posted-by">u/{{ post.author.username }}</a>
+					</router-link>
 					<a class="date-posted">{{ post.timestamp }}</a>
 				</div>
 				<div class="post-title">{{ post.title }}</div>
