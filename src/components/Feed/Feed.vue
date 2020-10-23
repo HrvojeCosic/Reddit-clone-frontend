@@ -1,5 +1,9 @@
 <template>
 	<div class="feed-container">
+		<SubmitCommunityForm
+			v-on:close-community-modal="toggleCommunityModal"
+			:class="{ hidden: hideCommunityModal }"
+		/>
 		<div class="post-container">
 			<CreatePost v-show="this.$store.state.tokenFound" />
 			<Post
@@ -7,10 +11,14 @@
 				v-bind:key="post._id"
 				v-bind:post="post"
 			/>
-			<button class="create-community-sticky">+</button>
+			<button class="create-community-sticky" @click="toggleCommunityModal">
+				+
+			</button>
 		</div>
 		<div class="featured-communities-container">
-			<button class="create-community-title">Create Community</button>
+			<button class="create-community-title" @click="toggleCommunityModal">
+				Create Community
+			</button>
 			<h1 class="featured-communities-title">
 				FeaturedCommunities
 			</h1>
@@ -28,13 +36,25 @@ import axios from 'axios';
 import CreatePost from '../CreatePost/CreatePost';
 import Post from '../Post/Post.vue';
 import FeaturedCommunities from '../FeaturedCommunities/FeaturedCommunities.vue';
+import SubmitCommunityForm from '../SubmitCommunityForm/SubmitCommunityForm.vue';
 export default {
 	name: 'Feed',
-	components: { Post, FeaturedCommunities, CreatePost },
 	beforeCreate() {
 		axios.get('http://localhost:3000/api/posts/').then(res => {
 			this.$store.commit('changePostsToShow', res.data.posts);
 		});
+	},
+	data() {
+		return {
+			hideCommunityModal: true,
+		};
+	},
+	methods: {
+		toggleCommunityModal() {
+			this.hideCommunityModal
+				? (this.hideCommunityModal = false)
+				: (this.hideCommunityModal = true);
+		},
 	},
 	computed: {
 		uniqueCommunities() {
@@ -46,6 +66,7 @@ export default {
 			return uniqueComms;
 		},
 	},
+	components: { Post, FeaturedCommunities, CreatePost, SubmitCommunityForm },
 };
 </script>
 

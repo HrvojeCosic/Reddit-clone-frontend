@@ -27,12 +27,14 @@
 }
 
 .create-community-title {
+    width: 100%;
     font-size: 1em;
     text-align: center;
-    padding: 14px;
+    padding: 7px;
     border-radius: inherit;
     background-color: #f6f7f8;
     color: #FF5722;
+    cursor: pointer;
 }
 
 .create-community-sticky {
@@ -44,9 +46,13 @@
     background-color:  #FF5722;
     color: #dbdbdb;
     font-size: 20px;
-    transition: .3s;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     display: none;
-    cursor: pointer;
+    outline: none;
+}
+.create-community-sticky:focus {
+    border: 2px solid #000000;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
 }
