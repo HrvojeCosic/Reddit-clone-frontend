@@ -32,11 +32,6 @@
     border-bottom: 1px solid #cccccc;
 }
 
-/* @media only screen and (max-width: 820px) {
-    #user-profile-container{
-        margin: 0;
-    }
-} */
 @media only screen and (max-width: 1000px) {
     #profile-post-container {
         min-width: 0px;

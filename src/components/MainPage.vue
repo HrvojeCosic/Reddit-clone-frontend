@@ -11,9 +11,6 @@ import Header from './Header/Header.vue';
 
 export default {
 	components: { Feed, Header },
-	data() {
-		return {};
-	},
 };
 </script>
 
@@ -31,6 +28,9 @@ export default {
 	}
 	.create-post-container {
 		margin: 5px 0;
+	}
+	.create-community-sticky {
+		display: unset;
 	}
 }
 @media only screen and (max-width: 735px) {

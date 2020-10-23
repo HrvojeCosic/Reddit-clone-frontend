@@ -2,6 +2,7 @@
     width: 100vw;
     display: flex;
     flex-direction: row;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .post-container {
     margin-top: 0px;
@@ -22,8 +23,30 @@
 .featured-communities-title {
     border-bottom: 1px solid #cccccc;
     font-size: 1.2em;
-    text-align: start;
     padding: 15px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.create-community-title {
+    font-size: 1em;
+    text-align: center;
+    padding: 14px;
+    border-radius: inherit;
+    background-color: #f6f7f8;
+    color: #FF5722;
+}
+
+.create-community-sticky {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    background-color:  #FF5722;
+    color: #dbdbdb;
+    font-size: 20px;
+    transition: .3s;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    display: none;
+    cursor: pointer;
+}

@@ -7,9 +7,13 @@
 				v-bind:key="post._id"
 				v-bind:post="post"
 			/>
+			<button class="create-community-sticky">+</button>
 		</div>
 		<div class="featured-communities-container">
-			<h1 class="featured-communities-title">FeaturedCommunities</h1>
+			<button class="create-community-title">Create Community</button>
+			<h1 class="featured-communities-title">
+				FeaturedCommunities
+			</h1>
 			<FeaturedCommunities
 				v-for="community in uniqueCommunities"
 				:key="community"
