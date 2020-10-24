@@ -4,11 +4,15 @@
 		<div class="form-container">
 			<div class="form-header">
 				<h2>Create a post</h2>
-				<input
-					type="text"
-					placeholder="Choose a community"
-					v-model="postCommunity"
-				/>
+				<h3>Choose a community</h3>
+				<select type="text" v-model="postCommunity">
+					<option
+						v-for="community in communities"
+						:key="community.name"
+						:value="community"
+						>r/{{ community }}</option
+					>
+				</select>
 			</div>
 			<form>
 				<input type="text" placeholder="Title" v-model="postTitle" />
@@ -27,6 +31,12 @@
 import Header from '../../components/Header/Header.vue';
 import axios from 'axios';
 export default {
+	beforeCreate() {
+		axios.get('http://localhost:3000/api/subreddits/').then(res => {
+			const uniqueCommunities = new Set(res.data);
+			this.communities = uniqueCommunities;
+		});
+	},
 	data() {
 		return {
 			postCommunity: '',
@@ -34,6 +44,7 @@ export default {
 			postText: '',
 			timestamp: new Date(),
 			err: '',
+			communities: [],
 		};
 	},
 	components: {

@@ -10,16 +10,35 @@
     margin-bottom: 50px;
     width: 100%;
 }
-.form-header h2 {
-    margin-bottom: 10px;
+.form-header h2{
     font-weight: 800;
 }
+.form-header select {
+	display: block;
+	font-size: 16px;
+	font-family: inherit;
+	color: #444;
+	padding: .6em 1.4em .5em .8em;
+    width: 70%;
+    min-width: 200px;
+	box-sizing: border-box;
+	margin: 0;
+	border: 1px solid #aaa;
+	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	border-radius: 5px;
+	background-color: #ffff;
+	background-image: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+	background-repeat: no-repeat, repeat;
+    background-size: 100%;
+}
+
 .form-header h2:after {
     content: '';
     display: block;
     border-bottom: 1px solid #ffffff;
     margin-top: 15px;
 }
+
 input[placeholder="Choose a community"] {
     padding: 8px;
     margin-top: 5px;
