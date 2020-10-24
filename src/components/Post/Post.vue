@@ -13,7 +13,12 @@
 		>
 			<div class="post-main" @click="findClickedPost">
 				<div class="upper-part">
-					<a class="community">r/{{ post.subreddit }}</a>
+					<router-link
+						:to="{ name: 'Community', params: { subreddit: post.subreddit } }"
+						class="link"
+					>
+						<a class="community">r/{{ post.subreddit }}</a>
+					</router-link>
 					<router-link
 						class="link"
 						:to="{

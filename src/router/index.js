@@ -7,6 +7,7 @@ import Header from '../components/Header/Header.vue';
 import SubmitPostForm from '../components/SubmitPostForm/SubmitPostForm.vue';
 import PostContent from '../components/PostContent/PostContent.vue';
 import UserProfile from '../components/UserProfile/UserProfile.vue';
+import Community from '../components/Community/Community.vue';
 
 Vue.use(VueRouter);
 
@@ -43,6 +44,11 @@ const routes = [
 		name: 'UserProfile',
 		component: UserProfile,
 		props: true,
+	},
+	{
+		path: '/community/:subreddit',
+		name: 'Community',
+		component: Community,
 	},
 ];
 
