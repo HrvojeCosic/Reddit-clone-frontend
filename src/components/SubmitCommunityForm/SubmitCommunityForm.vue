@@ -10,18 +10,61 @@
 					</button>
 				</div>
 				<h3>Name</h3>
-				<input type="text" class="comm-name" />
+				<input type="text" class="comm-name" v-model="communityName" />
 				<form>
 					<h3>Description</h3>
-					<textarea type="text" class="comm-description" />
+					<textarea
+						type="text"
+						class="comm-description"
+						v-model="communityDesc"
+					/>
+					{{ error }}
 				</form>
-				<input type="submit" value="CREATE COMMUNITY" class="submit-comm" />
+				<input
+					type="submit"
+					value="CREATE COMMUNITY"
+					class="submit-comm"
+					@click="submitNewCommunity"
+				/>
 			</div>
 		</div>
 	</div>
 </template>
 
-<script></script>
+<script>
+import axios from 'axios';
+export default {
+	data() {
+		return {
+			communityName: '',
+			communityDesc: '',
+			error: '',
+		};
+	},
+	methods: {
+		submitNewCommunity() {
+			if (this.communityName.length <= 0 || this.communityDesc.length <= 0) {
+				return (this.error = 'Please fill out all fields');
+			}
+			this.error = '';
+			axios
+				.post('http://localhost:3000/api/subreddits/new-subreddit', {
+					communityName: this.communityName,
+					communityDesc: this.communityDesc,
+					timestamp: new Date().toLocaleDateString(),
+				})
+				.then(() => {
+					this.$emit('close-community-modal');
+					this.communityName = '';
+					this.communityDesc = '';
+				})
+				.catch(res => {
+					this.error = res.data.error;
+				});
+		},
+	},
+};
+</script>
 <style>
 @import './SubmitCommunityForm.css';
 </style>
