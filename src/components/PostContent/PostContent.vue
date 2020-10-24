@@ -7,7 +7,12 @@
 			</div>
 			<div class="post-details">
 				<div class="post-upper-part">
-					<h3>r/{{ post.subreddit }}</h3>
+					<router-link
+						:to="{ name: 'Community', params: { subreddit: post.subreddit } }"
+						class="link"
+					>
+						<h3>r/{{ post.subreddit }}</h3>
+					</router-link>
 
 					<p class="author">
 						Posted by

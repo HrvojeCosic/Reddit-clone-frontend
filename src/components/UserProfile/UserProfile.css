@@ -34,6 +34,10 @@
 
 @media only screen and (max-width: 1000px) {
     #profile-post-container {
-        min-width: 0px;
+        min-width: 100%;
     }
+    .community-side-info {
+        max-width: 97%;
+    }
+    
 }

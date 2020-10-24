@@ -1,5 +1,10 @@
 <template>
-	<div class="featured-communities">r/{{ community }}</div>
+	<router-link
+		:to="{ name: 'Community', params: { subreddit: community } }"
+		class="link"
+	>
+		<div class="featured-communities">r/{{ community }}</div>
+	</router-link>
 </template>
 
 <script>

@@ -1,9 +1,15 @@
 <template>
 	<div class="community-hero">
 		<Header />
-		{{ name }}
-		{{ description }}
-		<div class="post-container">
+		<div class="community-header">
+			<h1>r/{{ name }}</h1>
+			<h3>{{ description }}</h3>
+			<div class="community-side-info">
+				<p>Created {{ timestamp }}</p>
+				<p>{{ numberOfPosts }} posts</p>
+			</div>
+		</div>
+		<div class="community-post-container">
 			<Post
 				v-for="post in this.$store.state.postsToShow"
 				v-bind:key="post._id"
@@ -27,14 +33,22 @@ export default {
 				this.$store.commit('changePostsToShow', res.data.posts);
 				this.name = res.data.name;
 				this.description = res.data.description;
+				this.timestamp = res.data.timestamp;
+				this.numberOfPosts = res.data.posts.length;
 			});
 	},
 	data() {
 		return {
 			name: '',
 			description: '',
+			timestamp: '',
+			numberOfPosts: 0,
 		};
 	},
 	components: { Header, Post },
 };
 </script>
+
+<style scoped>
+@import './Community.css';
+</style>
