@@ -15,7 +15,7 @@
 	flex-grow: 1;
 	align-items: center;
 	height: 30px;
-	padding: 5px;
+	padding: 10px;
 	margin: 0 20px;
 	border: 1px solid var(--border-color);;
 	border-radius: 4px;
@@ -25,7 +25,7 @@
 	outline: none;
 }
 .link-submit-post:hover {
-	border: 1px solid #246bee;
+	border: 1px solid var(--create-post-border-color);
 	background-color: var(--primary);
 }
 .create-post-btn {

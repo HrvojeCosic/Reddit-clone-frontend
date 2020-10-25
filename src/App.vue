@@ -16,6 +16,7 @@ export default {};
 	--background: #dae0e6;
 	--border-color: #dae0e6;
 	--post-border-color: #cccccc;
+	--create-post-border-color: #0079d3;
 	--primary-text-color: #000;
 	--secondary-text-color: #5a5a5a;
 	--logo-color: #ff5722;
@@ -26,9 +27,10 @@ export default {};
 	--background: #030303;
 	--border-color: #3d3d3d;
 	--post-border-color: #3a3a3a;
+	--create-post-border-color: #858585;
 	--primary-text-color: #d7dadc;
 	--secondary-text-color: #adadad;
-	--logo-color: #ff5722;
+	--logo-color: #eb5629;
 }
 
 #app {
