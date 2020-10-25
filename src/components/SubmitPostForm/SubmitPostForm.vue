@@ -5,7 +5,7 @@
 			<div class="form-header">
 				<h2>Create a post</h2>
 				<h3>Choose a community</h3>
-				<select type="text" v-model="postCommunity">
+				<select v-model="postCommunity">
 					<option
 						v-for="community in communities"
 						:key="community.name"
@@ -16,13 +16,17 @@
 			</div>
 			<form>
 				<input type="text" placeholder="Title" v-model="postTitle" />
-				<input type="text" placeholder="Text (optional)" v-model="postText" />
+				<textarea
+					type="text"
+					placeholder="Text (optional)"
+					v-model="postText"
+				/>
 			</form>
 			<div class="buttons-container">
 				<router-link to="/"><input type="submit" value="CANCEL"/></router-link>
 				<input type="submit" value="POST" @click="submitPost" />
 			</div>
-			<h1>{{ err }}</h1>
+			<h1 style="color:#E73A37">{{ error }}</h1>
 		</div>
 	</div>
 </template>
@@ -43,7 +47,7 @@ export default {
 			postTitle: '',
 			postText: '',
 			timestamp: new Date(),
-			err: '',
+			error: '',
 			communities: [],
 		};
 	},
@@ -59,18 +63,18 @@ export default {
 				text: this.postText,
 				timestamp: this.timestamp.toLocaleDateString(),
 			};
-			axios
-				.post('http://localhost:3000/api/posts', newPost)
-				.then(() => {
-					if (newPost.community === '' || newPost.title === '') {
-						this.err = 'Please fill out all the required fields.';
-						return;
-					}
-					this.$router.push('/');
-				})
-				.catch(err => {
-					console.log(err);
-				});
+			if (newPost.community === '' || newPost.title === '') {
+				this.error = 'Please fill out all the required fields.';
+			} else {
+				axios
+					.post('http://localhost:3000/api/posts', newPost)
+					.then(() => {
+						this.$router.push('/');
+					})
+					.catch(() => {
+						this.error = 'Something went wrong. Try again later';
+					});
+			}
 		},
 	},
 };

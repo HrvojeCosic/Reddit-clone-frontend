@@ -36,6 +36,10 @@
 	background-image: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
 	background-repeat: no-repeat, repeat;
     background-size: 100%;
+    outline: none;
+}
+.form-header select:focus {
+    border: 1px solid #6d6d6d;
 }
 input[placeholder="Choose a community"] {
     padding: 8px;
@@ -65,17 +69,24 @@ input[placeholder="Choose a community"] {
     border-radius: 4px;
     border: 1px solid #d8d8d8;
 }
-.form-container input[placeholder="Text (optional)"] {
+.form-container textarea[placeholder="Text (optional)"] {
     padding: 10px 10px 150px 10px;
     border-radius: 4px;
     border: 1px solid #d8d8d8;
+    resize: none;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+.form-container textarea[placeholder="Text (optional)"]:focus {
+    border: 1px solid black;
 }
 .buttons-container {
     display: flex;
     width: 100%;
     justify-content: flex-end;
     background-color: #ffffff;
-    padding: 15px 10px;
+    padding: 5px 10px 10px 10px;
     border-right: 1px solid #d8d8d8;
     border-left: 1px solid #d8d8d8;
     border-bottom: 1px solid #d8d8d8;

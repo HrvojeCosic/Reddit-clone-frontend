@@ -18,7 +18,7 @@
 						class="comm-description"
 						v-model="communityDesc"
 					/>
-					{{ error }}
+					<h3 style="color:#E73A37">{{ error }}</h3>
 				</form>
 				<input
 					type="submit"
