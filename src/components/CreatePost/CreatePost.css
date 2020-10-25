@@ -4,10 +4,10 @@
 	width: 100%;
 	height: 50px;
 	margin: 10px;
-	border: 1px solid #cccccc;
+	border: 1px solid var(--border-color);
 	border-radius: 4px;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	background-color: #ffffff;
+	background-color: var(--primary);
 }
 .link-submit-post {
 	text-decoration: none;
@@ -17,17 +17,16 @@
 	height: 30px;
 	padding: 5px;
 	margin: 0 20px;
-	border: 1px solid #cccccc;
+	border: 1px solid var(--border-color);;
 	border-radius: 4px;
-	background-color: #f6f7f8;
+	background-color: var(--secondary);
 	color: #acacac;
 	cursor: text;
 	outline: none;
-
 }
 .link-submit-post:hover {
 	border: 1px solid #246bee;
-	background-color: #ffffff;
+	background-color: var(--primary);
 }
 .create-post-btn {
 	width: 100%;

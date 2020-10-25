@@ -16,7 +16,7 @@ export default {
 
 <style>
 .main {
-	background-color: #dae0e6;
+	background-color: var(--background);
 }
 @media only screen and (max-width: 820px) {
 	.featured-communities-container {

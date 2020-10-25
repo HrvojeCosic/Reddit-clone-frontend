@@ -1,5 +1,5 @@
 #post-content-container {
-  margin: 0 auto;
+  margin: 5px auto;
   padding-top: 15px;
   display: grid;
   grid-template-columns: auto 1fr 40px;
@@ -9,18 +9,20 @@
                        "submit-comment submit-comment"
                        "comments comments";
   width: 70vw;
-  border: 1px solid #edeff1;
+  border: .5px solid var(--post-border-color);
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: var(--primary);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 12px;
   overflow-wrap: break-word;
   overflow: hidden;
+  color: var(--primary-text-color);
 }
 .post-details {
   grid-area: post-details;
   display: flex;
   flex-direction: column;
+	color: var(--primary-text-color);
 }
 .post-upper-part {
   font-size: 10px;
@@ -35,10 +37,12 @@
 .post-upper-part h3{
   font-weight: 800;
   margin-right: 3px;
+	color: var(--primary-text-color);
 }
 .timestamp {
   font-size: 10px;
   margin-top: 7px;
+	color: var(--primary-text-color);
 }
 .post-mid-part h3 {
   padding: 10px 0;
@@ -52,9 +56,11 @@
 .post-mid-part {
   font-size: 14px;
   line-height: 20px;
+	color: var(--primary-text-color);
 }
 .post-lower-part {
   margin-top: 10px;
+	color: var(--primary-text-color);
 }
 .post-submit-comment {
   display: flex;
@@ -72,7 +78,7 @@
   overflow: auto;
   padding: 6px;
   height: 100%;
-  border: 1px solid #edeff1;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   font-size: 14px;
 }
@@ -85,8 +91,9 @@
   margin-top: 5px;
   padding: 8px;
   border-radius: 4px;
-  background-color: #f86e43;
+  background-color: var(--logo-color);
   cursor: pointer;
+	color: var(--primary)
 }
 .comments-container {
   grid-area: comments;
@@ -99,7 +106,7 @@
                        'content content content';
   margin: 10px 0;
   padding: 5px 0;
-  border-bottom: 1px solid #edeff1;
+  border-bottom: 1px solid var(--border-color);
 }
 .upvote-comment, .downvote-comment {
   width: 15px;
@@ -118,7 +125,7 @@
 	transform: rotate(-225deg);
 }
 .upvote-comment:hover {
-	border-color: rgb(255,87,34)
+	border-color: var(--logo-color);
 }
 .downvote-comment:hover {
 	border-color: rgb(49, 113, 216);
@@ -132,6 +139,7 @@
 .author {
   font-size: 11px;
   margin-right: 5px;
+	color: var(--primary-text-color);
 }
 .points-date {
   display: flex;

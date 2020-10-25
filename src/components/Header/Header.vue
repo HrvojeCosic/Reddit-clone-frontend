@@ -7,6 +7,7 @@
 			</div>
 		</router-link>
 		<Searchbar />
+		<button style="cursor: pointer" @click="toggleMode">TestDarkMode</button>
 		<div class="buttons-log-sign">
 			<router-link
 				to="/log-in"
@@ -48,6 +49,7 @@ export default {
 		return {
 			username: '',
 			user_id: '.',
+			theme: 'light',
 		};
 	},
 	mounted() {
@@ -77,15 +79,20 @@ export default {
 				console.log(err);
 			});
 		},
+		toggleMode() {
+			if (this.theme === 'light') {
+				document.documentElement.setAttribute('data-theme', 'dark');
+				this.theme = 'dark';
+			} else if (this.theme === 'dark') {
+				document.documentElement.setAttribute('data-theme', 'light');
+				this.theme = 'light';
+			}
+		},
 	},
 	components: { Searchbar },
 };
 </script>
 
-<style scoped>
+<style>
 @import './Header.css';
-.link {
-	text-decoration: none;
-	color: inherit;
-}
 </style>

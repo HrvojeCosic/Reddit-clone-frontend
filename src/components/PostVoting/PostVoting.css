@@ -4,9 +4,10 @@
 	align-items: center;
 	justify-content: center;
 	padding: 10px;
-	background-color: #f6f7f8;
-	border-radius: 4px 0 0 4px;
+	background-color: var(--secondary);
+	color: var(--primary-text-color);
 	max-width: 35px;
+	height: 100%;
 }
 .upvote, .downvote {
 	width: 15px;
@@ -23,19 +24,19 @@
 	transform: rotate(-225deg)
 }
 .upvote:hover {
-	border-color: rgb(255,87,34)
+	border-color: var(--logo-color);
 	}
 .downvote:hover {
 	border-color: rgb(49, 113, 216);
 }
 .upvotedPost {
-    border-color: rgb(255,87,34);
+    border-color: var(--logo-color);
 }
 .downvotedPost {
 	border-color: rgb(49, 113, 216);
 }
 .upvotedNumber {
-    color: rgb(255,87,34);
+    color: var(--logo-color);
 }
 .downvotedNumber {
     color: rgb(49, 113, 216);

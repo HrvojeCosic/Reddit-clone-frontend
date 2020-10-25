@@ -1,29 +1,31 @@
 <template>
-	<div class="post-voting">
-		<div
-			class="upvote"
-			:class="{
-				//Set class if there's that post in the Vuex state's upvotedPosts array
-				upvotedPost: this.$store.state.upvotedPosts.includes(post._id),
-			}"
-			@click="upvotePost(post._id)"
-		/>
-		<div
-			:class="{
-				//Set class depending on in which (if any) Vuex state's array the post's _id is
-				upvotedNumber: this.$store.state.upvotedPosts.includes(post._id),
-				downvotedNumber: this.$store.state.downvotedPosts.includes(post._id),
-			}"
-		>
-			{{ post.upvotes }}
+	<div class="post-voting-container">
+		<div class="post-voting">
+			<div
+				class="upvote"
+				:class="{
+					//Set class if there's that post in the Vuex state's upvotedPosts array
+					upvotedPost: this.$store.state.upvotedPosts.includes(post._id),
+				}"
+				@click="upvotePost(post._id)"
+			/>
+			<div
+				:class="{
+					//Set class depending on in which (if any) Vuex state's array the post's _id is
+					upvotedNumber: this.$store.state.upvotedPosts.includes(post._id),
+					downvotedNumber: this.$store.state.downvotedPosts.includes(post._id),
+				}"
+			>
+				<p>{{ post.upvotes }}</p>
+			</div>
+			<div
+				class="downvote"
+				:class="{
+					downvotedPost: this.$store.state.downvotedPosts.includes(post._id),
+				}"
+				@click="downvotePost(post._id)"
+			/>
 		</div>
-		<div
-			class="downvote"
-			:class="{
-				downvotedPost: this.$store.state.downvotedPosts.includes(post._id),
-			}"
-			@click="downvotePost(post._id)"
-		/>
 	</div>
 </template>
 

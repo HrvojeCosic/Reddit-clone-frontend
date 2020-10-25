@@ -6,6 +6,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 17px;
     text-align: center;
+    color: var(--primary-text-color);
 }
 .community-header h1 {
     font-size: 19px;
@@ -17,7 +18,7 @@
     display: block;
     content: '';
     width: 1000px;
-    border-bottom: 1px solid #edeff1;
+    border-bottom: 1px solid var(--post-border-color);
     background-color: black;
     margin: 15px 0;
 }

@@ -13,7 +13,7 @@
 }
 .new-community-modal {
     z-index: 1;
-    background-color: #DAE0E6;
+    background-color: var(--background);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -38,7 +38,7 @@
     height: 35px;
     align-self: center;
     background-color:#8d8d8d;
-    color: #ffffff;
+    color: var(--primary);
     border-radius: 4px;
     cursor: pointer;
 }
@@ -52,7 +52,7 @@ h3 {
 .comm-title h2:after {
     content: '';
     display: block;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid var(--primary);
     margin: 15px 0 8px 0;
 }
 .submit-comm {
@@ -61,7 +61,7 @@ h3 {
     border: 1px solid #0079d3;
     border-radius: 4px;
     background-color: #0079d3;
-    color: #ffffff;
+    color: var(--primary);
     font-size: 14px;
     cursor: pointer;
 }

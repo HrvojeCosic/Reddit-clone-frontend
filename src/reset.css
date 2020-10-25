@@ -13,5 +13,5 @@ mark, audio, video {
 
 html {
     overflow-x: hidden;
-    background-color: #dae0e6;
+    background-color: var(--background);
   }

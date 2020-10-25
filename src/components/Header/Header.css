@@ -7,9 +7,13 @@
   align-items: center;
   justify-content: space-between;
   height: 50px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #edeff1;
+  background-color: var(--primary);
+  border-bottom: .5px solid var(--post-border-color);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#header .link {
+	text-decoration: none;
+	color: inherit;
 }
 
 #logo {
@@ -23,6 +27,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: var(--primary-text-color)
 }
 
 h1 {
@@ -36,11 +41,11 @@ h1 {
   max-width: 740px;
   flex-grow: 1;
   height: 33px;
-  border: 1px solid #edeff1;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   outline-color: #d7dadc;
   font-size: 14px;
-  background-color: #f6f7f8;
+  background-color: var(--secondary);
   background-image: url("https://www.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png");
   background-size: 30px;
   background-repeat: no-repeat;
@@ -62,12 +67,12 @@ h1 {
   border-radius: 4px;
   text-decoration: none;
   background-color: #0079d3;
-  color: #ffffff;
+  color: var(--primary);
   border-radius: 4px;
 }
 
 .log-in-btn {
-  background-color: #ffffff;
+  background-color: var(--primary);
   color: #0079d3;
 }
 .logged-in-user, .logout-btn {
@@ -78,8 +83,9 @@ h1 {
   min-width: 80px;
   border: 1px solid #edeff1;
   border-radius: 4px;
-  background-color: #f6f7f8;
+  background-color: var(--secondary);
   cursor: pointer;
+	color: var(--primary-text-color);
 }
 .logged-in-user:hover, .logout-btn:hover {
 -webkit-box-shadow: 2px 2px 7px 0px rgba(237,239,241,1);
@@ -88,5 +94,5 @@ box-shadow: 2px 2px 7px 0px rgba(237,239,241,1);
 }
 .logout-btn {
   margin-left: 10px;
-  color: #FF5722;
+  color: var(--logo-color);
 }
