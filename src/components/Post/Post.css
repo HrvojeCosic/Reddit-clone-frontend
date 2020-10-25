@@ -8,13 +8,11 @@
 	margin-left: 10px;
 	margin-bottom: 3px;
 }
-
 .post-link {
 	width: 100%;
 	text-decoration: none;
 	color: #000000;
 }
-
 .post-main {
 	display: grid;
 	justify-content: start;
@@ -42,21 +40,21 @@
 	color: #f86e43;
 	text-decoration: underline;
 }
-
 .posted-by {
 	grid-area: posted-by;
 	margin-right: 10px;
+	color: #5a5a5a;
 }
-
 .date-posted {
 	grid-area: date;
+	color: #5a5a5a;
 }
-
 .post-title {
 	grid-area: title;
 	word-break: break-word;
 }
-
 .comments {
+	font-size: 15px;
 	grid-area: comments;
+	color: #5a5a5a;
 }

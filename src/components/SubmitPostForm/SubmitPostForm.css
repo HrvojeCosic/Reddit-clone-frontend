@@ -13,6 +13,12 @@
 .form-header h2{
     font-weight: 800;
 }
+.form-header h2:after {
+    content: '';
+    display: block;
+    border-bottom: 1px solid #ffffff;
+    margin: 15px 0;
+}
 .form-header select {
 	display: block;
 	font-size: 16px;
@@ -31,14 +37,6 @@
 	background-repeat: no-repeat, repeat;
     background-size: 100%;
 }
-
-.form-header h2:after {
-    content: '';
-    display: block;
-    border-bottom: 1px solid #ffffff;
-    margin-top: 15px;
-}
-
 input[placeholder="Choose a community"] {
     padding: 8px;
     margin-top: 5px;
@@ -49,11 +47,12 @@ input[placeholder="Choose a community"] {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-bottom: 20px;
     padding: 10px;
     background-color: #ffffff;
-    border: 1px solid #d8d8d8;
-    border-radius: 4px;
+    border-top: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    border-left: 1px solid #d8d8d8;
+    border-radius: 4px 4px 0 0;
 }
 .form-container form input:focus {
     border: 1px solid black;
@@ -72,7 +71,15 @@ input[placeholder="Choose a community"] {
     border: 1px solid #d8d8d8;
 }
 .buttons-container {
-    align-self: flex-end;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    background-color: #ffffff;
+    padding: 15px 10px;
+    border-right: 1px solid #d8d8d8;
+    border-left: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    border-radius: 0 0 4px 4px;
 }
 .buttons-container input {
     padding: 10px;

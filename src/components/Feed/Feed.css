@@ -27,13 +27,13 @@
 }
 
 .create-community-title {
-    width: 100%;
     font-size: 1em;
     text-align: center;
-    padding: 7px;
+    padding: 8px;
+    margin: 8px 20px 0 20px;
     border-radius: inherit;
-    background-color: #f6f7f8;
-    color: #FF5722;
+    background-color: #f86437;
+    color: #ffffff;
     cursor: pointer;
 }
 
