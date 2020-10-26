@@ -15,25 +15,21 @@
 	text-decoration: none;
 	color: inherit;
 }
-
 #logo {
   padding: 5px;
   width: 40px;
   -webkit-user-select: none;
   -moz-user-select: none;
 }
-
 .title {
   display: flex;
   align-items: center;
   cursor: pointer;
   color: var(--primary-text-color)
 }
-
 h1 {
   margin: 5px 0 0 10px;
 }
-
 .search {
   position: relative;
   padding: 0 35px;
@@ -51,7 +47,6 @@ h1 {
   background-size: 30px;
   background-repeat: no-repeat;
 }
-
 .buttons-log-sign {
   display: flex;
   align-items: center;
@@ -59,22 +54,20 @@ h1 {
   font-weight: 600;
   font-size: 0.7em;
 }
-
 .sign-up-btn,
 .log-in-btn {
   padding: 9px 30px;
   margin-left: 20px;
-  border: 1px solid #0079d3;
+  border: 1px solid var(--create-post-border-color);
   border-radius: 4px;
   text-decoration: none;
-  background-color: #0079d3;
+  background-color: var(--create-post-border-color);
   color: var(--primary);
   border-radius: 4px;
 }
-
 .log-in-btn {
   background-color: var(--primary);
-  color: #0079d3;
+  color: var(--create-post-border-color);;
 }
 .logged-in-user, .logout-btn {
   display: flex;
@@ -92,7 +85,6 @@ h1 {
 .logged-in-user:hover, .logout-btn:hover {
   background-color: var(--secondary);
 }
-
 .logout-btn {
   margin-left: 10px;
   color: var(--logo-color);

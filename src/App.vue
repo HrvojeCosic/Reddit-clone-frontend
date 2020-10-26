@@ -27,7 +27,7 @@ export default {};
 	--background: #030303;
 	--border-color: #3d3d3d;
 	--post-border-color: #3a3a3a;
-	--create-post-border-color: #858585;
+	--create-post-border-color: #dad6d6;
 	--primary-text-color: #d7dadc;
 	--secondary-text-color: #adadad;
 	--logo-color: #eb5629;
