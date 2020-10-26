@@ -37,8 +37,20 @@
 			</div>
 			<div class="post-submit-comment">
 				<form @submit="createNewComment" :key="formKey">
-					<div class="comment-input" type="text" contenteditable="true" />
-					<input type="submit" value="COMMENT" />
+					<div
+						class="comment-input"
+						type="text"
+						contenteditable="true"
+						v-if="this.$store.state.tokenFound"
+					/>
+					<div class="not-logged-in-comment" v-else>
+						Log in or sign up to leave a comment
+					</div>
+					<input
+						type="submit"
+						value="COMMENT"
+						v-if="this.$store.state.tokenFound"
+					/>
 				</form>
 			</div>
 			<div class="comments-container">

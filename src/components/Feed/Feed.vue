@@ -5,7 +5,10 @@
 			:class="{ hidden: hideCommunityModal }"
 		/>
 		<div class="post-container">
-			<CreatePost v-show="this.$store.state.tokenFound" />
+			<CreatePost v-if="this.$store.state.tokenFound" />
+			<div class="not-logged-in-post" v-else>
+				Welcome! Log in to create posts and communities
+			</div>
 			<Post
 				v-for="post in this.$store.state.postsToShow"
 				v-bind:key="post._id"
@@ -16,7 +19,11 @@
 			</button>
 		</div>
 		<div class="featured-communities-container">
-			<button class="create-community-title" @click="toggleCommunityModal">
+			<button
+				class="create-community-title"
+				@click="toggleCommunityModal"
+				v-show="this.$store.state.tokenFound"
+			>
 				Create Community
 			</button>
 			<h1 class="featured-communities-title">

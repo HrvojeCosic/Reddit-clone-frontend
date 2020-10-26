@@ -10,6 +10,19 @@
     flex-direction: column;
     flex-grow: 1;
 }
+.not-logged-in-post {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	width: 100%;
+	height: 30px;
+	margin: 10px;
+	background-color: var(--primary);
+	border: .5px solid var(--post-border-color);
+    border-radius: 4px;
+    color: var(--primary-text-color);
+	font-family: inherit;
+}
 .featured-communities-container {
     display: flex;
     flex-direction: column;
@@ -27,7 +40,6 @@
     padding: 15px;
     color: var(--primary-text-color);
 }
-
 .create-community-title {
     font-size: 1em;
     text-align: center;
@@ -38,7 +50,6 @@
     color: var(--primary);
     cursor: pointer;
 }
-
 .create-community-sticky {
     width: 30px;
     height: 30px;
