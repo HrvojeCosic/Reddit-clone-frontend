@@ -7,8 +7,13 @@
 			</div>
 		</router-link>
 		<Searchbar />
-		<button style="cursor: pointer" @click="toggleMode">TestDarkMode</button>
 		<div class="buttons-log-sign">
+			<img
+				@click="toggleMode"
+				class="mode-toggle-btn"
+				src="https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/moon_dark_mode_night-2-512.png"
+				alt="Mode-toggle-btn"
+			/>
 			<router-link
 				to="/log-in"
 				class="log-in-btn"
@@ -45,11 +50,17 @@ import axios from 'axios';
 import router from '../../router/index';
 import Searchbar from '../Searchbar/Searchbar.vue';
 export default {
+	beforeCreate() {
+		if (this.$store.state.darkMode === true) {
+			document.documentElement.setAttribute('data-theme', 'dark');
+			return;
+		}
+		document.documentElement.setAttribute('data-theme', 'light');
+	},
 	data() {
 		return {
 			username: '',
 			user_id: '.',
-			theme: 'light',
 		};
 	},
 	mounted() {
@@ -80,12 +91,14 @@ export default {
 			});
 		},
 		toggleMode() {
-			if (this.theme === 'light') {
+			if (this.$store.state.darkMode === false) {
 				document.documentElement.setAttribute('data-theme', 'dark');
 				this.theme = 'dark';
-			} else if (this.theme === 'dark') {
+				this.$store.commit('toggleDarkMode');
+			} else {
 				document.documentElement.setAttribute('data-theme', 'light');
 				this.theme = 'light';
+				this.$store.commit('toggleDarkMode');
 			}
 		},
 	},

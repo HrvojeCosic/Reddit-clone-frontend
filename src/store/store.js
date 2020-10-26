@@ -12,6 +12,7 @@ export default new Vuex.Store({
 		comments,
 	},
 	state: {
+		darkMode: false,
 		tokenFound: null,
 		currentUser: '',
 		clickedPost: {},
@@ -20,6 +21,9 @@ export default new Vuex.Store({
 		downvotedPosts: [],
 	},
 	mutations: {
+		toggleDarkMode(state) {
+			state.darkMode = !state.darkMode;
+		},
 		changeJwt(state, jwt) {
 			state.tokenFound = jwt;
 		},
