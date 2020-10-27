@@ -69,3 +69,13 @@
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
 }
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: calc(100vh - 50px);
+}
+.spinner-logo {
+    width: 100%;
+}

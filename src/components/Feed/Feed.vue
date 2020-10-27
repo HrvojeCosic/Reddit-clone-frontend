@@ -1,5 +1,5 @@
 <template>
-	<div class="feed-container">
+	<div class="feed-container" v-if="!loadingSpinner">
 		<SubmitCommunityForm
 			v-on:close-community-modal="toggleCommunityModal"
 			:class="{ hidden: hideCommunityModal }"
@@ -36,6 +36,15 @@
 			/>
 		</div>
 	</div>
+	<div class="loader-container" v-else>
+		<div class="loader main-loader">
+			<img
+				src="../../../src/assets/logo.png"
+				alt="Mode-toggle-btn"
+				class="spinner-logo"
+			/>
+		</div>
+	</div>
 </template>
 
 <script>
@@ -49,11 +58,13 @@ export default {
 	beforeCreate() {
 		axios.get('http://localhost:3000/api/posts/').then(res => {
 			this.$store.commit('changePostsToShow', res.data.posts);
+			this.loadingSpinner = false;
 		});
 	},
 	data() {
 		return {
 			hideCommunityModal: true,
+			loadingSpinner: true,
 		};
 	},
 	methods: {

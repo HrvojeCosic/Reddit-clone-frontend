@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Header />
-		<div id="post-content-container">
+		<div id="post-content-container" v-if="!loadingSpinner">
 			<div class="post-voting">
 				<PostVoting :post="post" :style="{ backgroundColor: 'white' }" />
 			</div>
@@ -58,6 +58,7 @@
 				</div>
 			</div>
 		</div>
+		<div class="loader" v-else />
 	</div>
 </template>
 
@@ -75,6 +76,7 @@ export default {
 					this.comments.push(comment);
 				});
 				this.post = res.data.post;
+				this.loadingSpinner = false;
 			});
 	},
 	data() {
@@ -83,6 +85,7 @@ export default {
 			comments: [],
 			error: '',
 			formKey: 0,
+			loadingSpinner: true,
 		};
 	},
 	components: { Header, PostComment, PostVoting },

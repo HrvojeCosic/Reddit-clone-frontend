@@ -35,11 +35,21 @@ export default {};
 .loader {
 	margin: 30px auto;
 	border-radius: 50%;
-	border-top: 2px solid var(--primary-text-color);
+	border-top: 2px solid var(--logo-color);
 	width: 30px;
 	height: 30px;
 	-webkit-animation: spin 2s linear infinite;
 	animation: spin 2s linear infinite;
+}
+.main-loader {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: translate(-50%, -50%);
+	width: 100px;
+	height: 100px;
+	border: 0px solid var(--logo-color);
+	border-radius: 50%;
 }
 @-webkit-keyframes spin {
 	0% {
