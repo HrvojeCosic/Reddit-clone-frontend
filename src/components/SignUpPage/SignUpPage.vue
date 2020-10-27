@@ -22,7 +22,10 @@
 					id="repeat-password"
 					v-model="repeatPassword"
 				/>
-				<button id="submit" @click="createUser">Sign Up</button>
+				<button id="submit" @click="createUser">
+					<p v-if="!loadingSpinner">Sign Up</p>
+					<div class="loader button-loader" v-else />
+				</button>
 				<h3
 					v-bind:class="[
 						alert === 'Signed up successfully.' ? success : failed,
@@ -50,10 +53,12 @@ export default {
 			alert: '',
 			success: 'signed-up',
 			failed: 'signup-failed',
+			loadingSpinner: false,
 		};
 	},
 	methods: {
 		createUser() {
+			this.loadingSpinner = true;
 			const newUser = {
 				username: this.username,
 				password: this.password,
@@ -66,9 +71,11 @@ export default {
 				.then(res => {
 					this.alert = res.data.title;
 					router.push('/log-in');
+					this.loadingSpinner = false;
 				})
 				.catch(err => {
 					this.alert = err.response.data.error;
+					this.loadingSpinner = false;
 				});
 		},
 	},

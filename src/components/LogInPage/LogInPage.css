@@ -61,3 +61,16 @@
 .logged-in {
 	color: rgb(25, 93, 25);
 }
+#submit {
+	outline: none
+}
+#submit:focus {
+	border: 1px solid var(--primary-text-color);
+}
+.button-loader {
+	height: 17px;
+	width: 17px;
+	margin: 0 auto;
+	border-top: 2px solid var(--secondary);
+	box-sizing: border-box;
+}

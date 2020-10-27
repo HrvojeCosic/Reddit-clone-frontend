@@ -10,7 +10,10 @@
 					id="password"
 					v-model="password"
 				/>
-				<button id="submit" @click="login">Login</button>
+				<button id="submit" @click="login">
+					<p v-if="!loadingSpinner">Login</p>
+					<div class="loader button-loader" v-else />
+				</button>
 			</form>
 			<h3 v-bind:class="[alert === 'login successful.' ? success : failed]">
 				{{ alert }}
@@ -36,10 +39,12 @@ export default {
 			alert: '',
 			failed: 'login-failed',
 			success: 'logged-in',
+			loadingSpinner: false,
 		};
 	},
 	methods: {
 		login() {
+			this.loadingSpinner = true;
 			const user = {
 				email: this.email,
 				password: this.password,
@@ -52,9 +57,11 @@ export default {
 					this.$store.commit('changeJwt', res.data.token);
 					this.$store.commit('addCurrentUser', user.email);
 					router.push('/');
+					this.loadingSpinner = false;
 				})
 				.catch(err => {
 					this.alert = err.response.data.error;
+					this.loadingSpinner = false;
 				});
 		},
 	},
