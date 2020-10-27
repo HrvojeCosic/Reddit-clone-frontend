@@ -46,6 +46,9 @@ export default {
 			if (this.communityName.length <= 0 || this.communityDesc.length <= 0) {
 				return (this.error = 'Please fill out all fields');
 			}
+			if (this.communityName.length > 20 || this.communityName.length < 3) {
+				return (this.error = "Make your community's name 3-20 characters long");
+			}
 			this.error = '';
 			axios
 				.post('http://localhost:3000/api/subreddits/new-subreddit', {

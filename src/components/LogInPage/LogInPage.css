@@ -1,6 +1,6 @@
 .log-in-container {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	background: var(--secondary);
+	background: var(--background);
 	height: 100vh;
 	padding: 10%;
 }
