@@ -2,7 +2,15 @@
 	<div class="comment">
 		<div class="upper-part-comment">
 			<CommentVoting :comment="comment" v-on:update-upvotes="updateUpvotes" />
-			<p class="author">{{ comment.author }}</p>
+			<router-link
+				class="link"
+				:to="{
+					name: 'UserProfile',
+					params: { user_id: comment.author._id },
+				}"
+			>
+				<p class="author">{{ comment.author.username }}</p>
+			</router-link>
 			<div class="points-date">
 				<p class="points">{{ commentUpvotes }} points</p>
 				<p class="date">{{ comment.timestamp }}</p>

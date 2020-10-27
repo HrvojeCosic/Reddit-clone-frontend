@@ -13,7 +13,6 @@
 					>
 						<h3>r/{{ post.subreddit }}</h3>
 					</router-link>
-
 					<p class="author">
 						Posted by
 						<router-link
