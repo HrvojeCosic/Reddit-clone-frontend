@@ -4,9 +4,12 @@
 		<div id="user-profile-container">
 			<div class="user-overview">
 				<img src="../../assets/profile-picture.png" class="profile-picture" />
-				<div class="username">u/{{ username }}</div>
-				<div class="user-timestamp">Created: {{ timestamp }}</div>
-				<div>posts: {{ posts.length }}</div>
+				<div class="username" v-if="!loadingSpinner">u/{{ username }}</div>
+				<div class="loader" v-else />
+				<div class="user-timestamp" v-if="!loadingSpinner">
+					Created: {{ timestamp }}
+				</div>
+				<div v-if="!loadingSpinner">posts: {{ posts.length }}</div>
 			</div>
 			<div class="posts-user-profile">
 				<div v-for="post in posts" :key="post._id">
@@ -31,6 +34,8 @@ export default {
 				this.username = userUsername;
 				this.timestamp = userTimestamp;
 				this.posts = posts;
+
+				this.loadingSpinner = false;
 			});
 	},
 	data() {
@@ -38,6 +43,7 @@ export default {
 			username: '',
 			timestamp: '',
 			posts: [],
+			loadingSpinner: true,
 		};
 	},
 	components: { Header, Post },

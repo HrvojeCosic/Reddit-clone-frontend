@@ -34,7 +34,6 @@
     margin: 0 auto;
     border-bottom: 1px solid var(--post-border-color);
 }
-
 @media only screen and (max-width: 1000px) {
     #profile-post-container {
         min-width: 100%;

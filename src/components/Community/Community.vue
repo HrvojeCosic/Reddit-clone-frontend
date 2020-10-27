@@ -1,7 +1,7 @@
 <template>
 	<div class="community-hero">
 		<Header />
-		<div class="community-header">
+		<div class="community-header" v-if="!loadingSpinner">
 			<h1>r/{{ name }}</h1>
 			<h3>{{ description }}</h3>
 			<div class="community-side-info">
@@ -9,6 +9,7 @@
 				<p>{{ numberOfPosts }} posts</p>
 			</div>
 		</div>
+		<div class="loader" v-else />
 		<div class="community-post-container">
 			<Post
 				v-for="post in this.$store.state.postsToShow"
@@ -35,6 +36,8 @@ export default {
 				this.description = res.data.description;
 				this.timestamp = res.data.timestamp;
 				this.numberOfPosts = res.data.posts.length;
+
+				this.loadingSpinner = false;
 			});
 	},
 	data() {
@@ -43,6 +46,7 @@ export default {
 			description: '',
 			timestamp: '',
 			numberOfPosts: 0,
+			loadingSpinner: true,
 		};
 	},
 	components: { Header, Post },

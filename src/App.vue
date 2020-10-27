@@ -32,7 +32,31 @@ export default {};
 	--secondary-text-color: #adadad;
 	--logo-color: #eb5629;
 }
-
+.loader {
+	margin: 30px auto;
+	border-radius: 50%;
+	border-top: 2px solid var(--primary-text-color);
+	width: 30px;
+	height: 30px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
 #app {
 	width: 100vw;
 	height: 100vh;
