@@ -69,15 +69,13 @@ import PostComment from '../PostComment/PostComment.vue';
 import PostVoting from '../PostVoting/PostVoting.vue';
 export default {
 	created() {
-		axios
-			.get(`http://localhost:3000/api/posts/post/${this.post._id}`)
-			.then(res => {
-				res.data.post.comments.forEach(comment => {
-					this.comments.push(comment);
-				});
-				this.post = res.data.post;
-				this.loadingSpinner = false;
+		axios.get(`api/posts/post/${this.post._id}`).then(res => {
+			res.data.post.comments.forEach(comment => {
+				this.comments.push(comment);
 			});
+			this.post = res.data.post;
+			this.loadingSpinner = false;
+		});
 	},
 	data() {
 		return {
@@ -93,7 +91,7 @@ export default {
 		createNewComment(e) {
 			const comment = e.target.innerText;
 			axios
-				.post(`http://localhost:3000/api/posts/post/${this.post._id}`, {
+				.post(`api/posts/post/${this.post._id}`, {
 					author: this.$store.state.currentUser,
 					comment,
 					timestamp: new Date().toLocaleDateString(),

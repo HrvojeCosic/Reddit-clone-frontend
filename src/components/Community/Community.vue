@@ -28,17 +28,15 @@ import axios from 'axios';
 export default {
 	beforeCreate() {
 		const currentSubreddit = this.$route.params.subreddit;
-		axios
-			.get(`http://localhost:3000/api/subreddits/subreddit/${currentSubreddit}`)
-			.then(res => {
-				this.$store.commit('changePostsToShow', res.data.posts);
-				this.name = res.data.name;
-				this.description = res.data.description;
-				this.timestamp = res.data.timestamp;
-				this.numberOfPosts = res.data.posts.length;
+		axios.get(`api/subreddits/subreddit/${currentSubreddit}`).then(res => {
+			this.$store.commit('changePostsToShow', res.data.posts);
+			this.name = res.data.name;
+			this.description = res.data.description;
+			this.timestamp = res.data.timestamp;
+			this.numberOfPosts = res.data.posts.length;
 
-				this.loadingSpinner = false;
-			});
+			this.loadingSpinner = false;
+		});
 	},
 	data() {
 		return {

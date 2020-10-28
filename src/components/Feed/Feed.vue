@@ -56,7 +56,7 @@ import SubmitCommunityForm from '../SubmitCommunityForm/SubmitCommunityForm.vue'
 export default {
 	name: 'Feed',
 	beforeCreate() {
-		axios.get('http://localhost:3000/api/posts/').then(res => {
+		axios.get('api/posts/').then(res => {
 			this.$store.commit('changePostsToShow', res.data.posts);
 			this.loadingSpinner = false;
 		});

@@ -15,13 +15,11 @@ export default {
 			//IF SEARCHBOX'S FIRST CHAR IS NOT '.' AND IF IT IS NOT EMPTY
 			if (e.target.value[0] != '.') {
 				if (e.target.value.length > 0) {
-					axios
-						.get(`http://localhost:3000/api/posts/searchPost/${e.target.value}`)
-						.then(posts => {
-							this.$store.commit('changePostsToShow', posts.data.postsFound);
-						});
+					axios.get(`api/posts/searchPost/${e.target.value}`).then(posts => {
+						this.$store.commit('changePostsToShow', posts.data.postsFound);
+					});
 				} else {
-					axios.get('http://localhost:3000/api/posts/').then(res => {
+					axios.get('api/posts/').then(res => {
 						this.$store.state.postsToShow = res.data.posts;
 					});
 				}

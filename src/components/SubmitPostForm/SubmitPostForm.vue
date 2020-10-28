@@ -36,7 +36,7 @@ import Header from '../../components/Header/Header.vue';
 import axios from 'axios';
 export default {
 	beforeCreate() {
-		axios.get('http://localhost:3000/api/subreddits/').then(res => {
+		axios.get('api/subreddits/').then(res => {
 			const uniqueCommunities = new Set(res.data);
 			this.communities = uniqueCommunities;
 		});
@@ -67,7 +67,7 @@ export default {
 				this.error = 'Please fill out all the required fields.';
 			} else {
 				axios
-					.post('http://localhost:3000/api/posts', newPost)
+					.post('api/posts', newPost)
 					.then(() => {
 						this.$router.push('/');
 					})

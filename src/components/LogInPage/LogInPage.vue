@@ -50,7 +50,7 @@ export default {
 				password: this.password,
 			};
 			axios
-				.post('http://localhost:3000/api/users/login', user)
+				.post('api/users/login', user)
 				.then(res => {
 					this.alert = res.data.title;
 					//SET JWT TO LOCALSTORAGE AND UPDATE VUEX STATE'S tokenFound

@@ -42,7 +42,7 @@ export default new Vuex.Store({
 		pushUpvotedPost(state, post) {
 			if (!state.upvotedPosts.includes(post)) {
 				state.upvotedPosts.push(post);
-				axios.put('http://localhost:3000/api/posts/votePost', {
+				axios.put('api/posts/votePost', {
 					post,
 					action: 'addVote',
 				});
@@ -51,7 +51,7 @@ export default new Vuex.Store({
 		pushDownvotedPost(state, post) {
 			if (!state.downvotedPosts.includes(post)) {
 				state.downvotedPosts.push(post);
-				axios.put('http://localhost:3000/api/posts/votePost', {
+				axios.put('api/posts/votePost', {
 					post,
 					action: 'subtractVote',
 				});
@@ -62,7 +62,7 @@ export default new Vuex.Store({
 				return upvotedPost !== post;
 			});
 			state.upvotedPosts = filtered;
-			axios.put('http://localhost:3000/api/posts/votePost', {
+			axios.put('api/posts/votePost', {
 				post,
 				action: 'subtractVote',
 			});
@@ -72,7 +72,7 @@ export default new Vuex.Store({
 				return downvotedPost !== post;
 			});
 			state.downvotedPosts = filtered;
-			axios.put('http://localhost:3000/api/posts/votePost', {
+			axios.put('api/posts/votePost', {
 				post,
 				action: 'addVote',
 			});

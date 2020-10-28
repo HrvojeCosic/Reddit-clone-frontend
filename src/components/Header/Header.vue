@@ -66,7 +66,7 @@ export default {
 	mounted() {
 		if (this.$store.state.tokenFound) {
 			axios
-				.get('http://localhost:3000/api/users/login', {
+				.get('api/users/login', {
 					headers: { token: this.$store.state.tokenFound },
 				})
 				.then(res => {

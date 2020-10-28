@@ -67,7 +67,7 @@ export default {
 				createdAt: this.createdAt,
 			};
 			axios
-				.post('http://localhost:3000/api/users', newUser)
+				.post('api/users', newUser)
 				.then(res => {
 					this.alert = res.data.title;
 					router.push('/log-in');

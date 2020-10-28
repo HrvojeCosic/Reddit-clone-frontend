@@ -51,7 +51,7 @@ export default {
 			}
 			this.error = '';
 			axios
-				.post('http://localhost:3000/api/subreddits/new-subreddit', {
+				.post('api/subreddits/new-subreddit', {
 					communityName: this.communityName,
 					communityDesc: this.communityDesc,
 					timestamp: new Date().toLocaleDateString(),
