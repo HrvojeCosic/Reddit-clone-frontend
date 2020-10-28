@@ -3,7 +3,7 @@
 		<router-link to="/" class="link">
 			<div class="title">
 				<img id="logo" src="../../../src/assets/logo.png" />
-				<h1>RedditLight</h1>
+				<h1>redditLight</h1>
 			</div>
 		</router-link>
 		<Searchbar />
